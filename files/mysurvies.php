@@ -21,8 +21,8 @@
 
 include __DIR__."/header.php";
 
-$s_where = ($request == 'all' ? "private = 0" : "author = '".us_id."'");
-$s_title = ($request == 'all' ? $lang['mysurvys']['alltitle'] : $lang['mysurvys']['title']);
+$s_where = ("author = '".us_id."'");
+$s_title = ($lang['mysurvys']['title']);
 ?>
 
 <div class="pt-title">
@@ -35,7 +35,7 @@ $s_title = ($request == 'all' ? $lang['mysurvys']['alltitle'] : $lang['mysurvys'
 <table class="table table-responsive">
 	<thead>
 		<tr>
-			<th scope="col"><?=($request != 'all' ? $lang['mysurvys']['status'] : '')?></th>
+			<th scope="col"><?=('')?></th>
 			<th scope="col"><?=$lang['mysurvys']['name']?></th>
 			<th scope="col"><?=$lang['mysurvys']['views']?></th>
 			<th scope="col"><?=$lang['mysurvys']['responses']?></th>
@@ -58,18 +58,13 @@ $s_title = ($request == 'all' ? $lang['mysurvys']['alltitle'] : $lang['mysurvys'
 			$userphoto = db_get("users", "photo", $rs['author']);
 		?>
 		<tr>
-			<?php if($request != 'all'): ?>
-			<th scope="row" class="pt-status">
-				<input class="tgl tgl-light" id="cb<?=$rs['id']?>" value="<?=$rs['id']?>" type="checkbox"<?=(!$rs['status'] ? ' checked' : '')?>/>
-				<label class="tgl-btn" for="cb<?=$rs['id']?>"></label>
-			</th>
-			<?php else: ?>
+			<?php ?>
 			<th scope="row" class="pt-thumbth">
 				<div class="pt-thumb">
 					<img src="<?=($userphoto?$userphoto:nophoto)?>" title="<?=fh_user($rs['author'], false)?>" onerror="this.src='<?=nophoto?>'" />
 				</div>
 			</th>
-			<?php endif; ?>
+			<?php ?>
 			<td><a href="<?=path?>/index.php?pg=survey&id=<?=$rs['id']?>&t=<?=fh_seoURL($rs['title'])?>"><?=$rs['title']?></a></td>
 			<td><?=$rs['views']?></td>
 			<td><?=db_rows("responses WHERE survey = '{$rs['id']}' GROUP BY token_id", "token_id")?></td>
@@ -89,7 +84,6 @@ $s_title = ($request == 'all' ? $lang['mysurvys']['alltitle'] : $lang['mysurvys'
 					<?php if(fh_access("iframe")): ?>
 					<li><a data-toggle="modal" href="#embedModal<?=$rs['id']?>"><i class="fas fa-share-square"></i> <?=$lang['mysurvys']['op_embed']?></a></li>
 					<?php endif; ?>
-					<li><a href="#sendModal" rel="<?=$rs['id']?>" data-toggle="modal" class="sendtoemail"><i class="far fa-envelope"></i> <?=$lang['mysurvys']['op_send']?></a></li>
 					<li><a href="<?=path?>/index.php?pg=editor&id=<?=$rs['id']?>"><i class="far fa-edit"></i> <?=$lang['mysurvys']['op_edit']?></a></li>
 					<li><a class="pt-delete" data-table="survey" rel="<?=$rs['id']?>"><i class="fas fa-trash-alt"></i> <?=$lang['mysurvys']['op_delete']?></a></li>
 					<?php endif; ?>
@@ -117,48 +111,6 @@ $s_title = ($request == 'all' ? $lang['mysurvys']['alltitle'] : $lang['mysurvys'
 		?>
 	</tbody>
 </table>
-
-<div class="modal fade" id="sendModal">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<form class="pt-sendsurveyemail">
-			<div class="modal-header">
-				<h4 class="modal-title"><?=$lang['mysurvys']['op_send']?></h4>
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-			</div>
-
-			<div class="modal-body">
-				<div class="mb-3">
-					<input type="text" name="subject" value="" placeholder="<?=$lang['mysurvys']['subject']?>">
-				</div>
-				<div class="mb-3">
-					<select name="email[]" class="js-example-tokenizer" multiple="multiple">
-						<?php
-						$sqls = $db->query("SELECT * FROM ".prefix."users");
-						while($rss = $sqls->fetch_assoc()):
-						?>
-						<option value="<?=$rss['email']?>"><?=$rss['email']?></option>
-						<?php
-						endwhile;
-						$sqls->close();
-						?>
-					</select>
-				</div>
-				<div class="">
-					<textarea name="message" id="wysibb-editor3"><?php echo site_sendsurveyemail ?></textarea>
-				</div>
-			</div>
-
-			<div class="modal-footer">
-				<input type="hidden" name="id" value="">
-				<button type="submit" class="btn btn-danger"><?=$lang['mysurvys']['op_send']?></button>
-			</div>
-
-			</form>
-
-		</div>
-	</div>
-</div>
 
 <?php
 include __DIR__."/footer.php";
