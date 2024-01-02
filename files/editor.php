@@ -127,7 +127,7 @@ $questionColors["file"]     = "bro";
 						</div>
 					</div>
 
-					<div class="pt-radio-slide">
+<!-- 					<div class="pt-radio-slide">
 						<input name="survey_private" class="tgl tgl-light" id="survey_private" type="checkbox" <?php echo ($id && $rs['private']?'checked':'') ?>>
 						<label class="tgl-btn" for="survey_private"></label>
 						<b><?php echo $lang['editor']["private"] ?>
@@ -135,7 +135,7 @@ $questionColors["file"]     = "bro";
 								<i class="fas fa-question-circle" data-toggle="tooltip" data-placement="right" title="<?php echo $lang['editor']["private_i"] ?>"></i>
 							</div>
 						</b>
-					</div>
+					</div> -->
 
 					<div class="pt-radio-slide">
 						<input name="survey_pagination" class="tgl tgl-light" id="survey_pagination" type="checkbox" <?php echo ($id && $rs['pagination']?'checked':'') ?>>
