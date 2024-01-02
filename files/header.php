@@ -1,23 +1,4 @@
 <?php
-# -------------------------------------------------#
-#¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤#
-#	¤                                            ¤   #
-#	¤         Puerto Premium Survey 1.0          ¤   #
-#	¤--------------------------------------------¤   #
-#	¤              By Khalid Puerto              ¤   #
-#	¤--------------------------------------------¤   #
-#	¤                                            ¤   #
-#	¤  Facebook : fb.com/prof.puertokhalid       ¤   #
-#	¤  Instagram : instagram.com/khalidpuerto    ¤   #
-#	¤  Site : http://www.puertokhalid.com        ¤   #
-#	¤  Whatsapp: +212 654 211 360                ¤   #
-#	¤                                            ¤   #
-#	¤--------------------------------------------¤   #
-#	¤                                            ¤   #
-#	¤  Last Update: 10/02/2022                   ¤   #
-#	¤                                            ¤   #
-#¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤#
-# -------------------------------------------------#
 
 include __DIR__."/head.php";
 
@@ -29,11 +10,13 @@ if(us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-twi
 	<div class="pt-header">
 		<div class="pt-menu">
 			<div class="pt-logo">
-				<a href="<?=path?>"><img src="<?=path?>/<?=site_logo?>" onerror="this.src='<?=path?>/assets/img/logo3.png'" /></a>
+			<h1>hello</h1>
+				<a href="<?=path?>"><img src="<?=path?>/<?=site_logo?>" onerror="this.src='<?=path?>/assets/img/leadstaketime_logo.png'" /></a>
 			</div>
 			<div class="pt-links-l">
 				<span class="pt-mobile-menu"><i class="fas fa-ellipsis-h"></i></span>
 				<ul class="pt-drop">
+					
 					<li><a href="<?=path?>"<?=(page=='index'&&!$pg&&$request!='all'?' class="pt-active"':'')?>><?=$lang['menu']['home']?></a></li>
 					<?php if (site_landing && us_level): ?>
 						<li><a href="<?=path?>/index.php?pg=mysurveys"><?=$lang['menu']['my']?></a></li>
@@ -54,6 +37,7 @@ if(us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-twi
 			</div>
 			<div class="pt-links-r">
 				<ul>
+					<!-- <h1>asfsdf</h1> -->
 					<?php if( site_plans ): ?>
 					<li><a href="<?=path?>/index.php?pg=plans"><i class="far fa-gem"></i> <?=$lang['menu']['plans']?></a></li>
 					<?php endif; ?>

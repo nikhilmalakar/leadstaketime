@@ -60,11 +60,6 @@ function rewrite_urls($change){
 }
 ob_start("rewrite_urls");
 
-# If the installation file exists
-if (file_exists(__DIR__."/install/install.php")) {
-	die('<meta http-equiv="refresh" content="0;url=install/install.php">');
-}
-
 function getBaseUrl(){
   $protocol = 'http';
   if ($_SERVER['SERVER_PORT'] == 443 || (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on')) {

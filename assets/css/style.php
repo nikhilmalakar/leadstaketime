@@ -81,14 +81,6 @@ a, a:hover, a:focus,
 .pt-body .table .pt-progress-line span {
 	background: <?php echo $a ?>;
 }
-.pt-loginpage, body.pt-nouser,
-.pt-header,
-.pt-surveybg,
-.pt-section.pt-topsurvys,
-.pt-bodyhome .pt-footer,
-.pt-dashboardpage .pt-admin-nav {
-  background: <?php echo $header ?>;
-}
 .pt-header .pt-menu .pt-links-r ul li a {
     /*color: #a4bdf6;*/
     color: #FFF;
@@ -113,7 +105,7 @@ a, a:hover, a:focus,
 	background: <?php echo $header_t ?>;
 }
 .pt-header .pt-top-menu .pt-left-menu li:first-of-type a {
-    background: linear-gradient(0deg, rgba(238, 238, 238, 0) 0%, <?php echo $header_t ?> 100%);
+    <!-- background: linear-gradient(0deg, rgba(238, 238, 238, 0) 0%, <?php echo $header_t ?> 100%); -->
 }
 
 .pt-header .pt-context a {
