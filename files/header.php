@@ -21,11 +21,9 @@ if(us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-twi
 					<?php if (site_landing && us_level): ?>
 						<li><a href="<?=path?>/index.php?pg=mysurveys"><?=$lang['menu']['my']?></a></li>
 					<?php endif; ?>
-					<?php if (show_allsurveys): ?>
-					<li><a href="<?=path?>/index.php?pg=mysurveys&request=all"<?=(page=='index'&&$request=='all'?' class="pt-active"':'')?>><?=$lang['menu']['forms']?></a></li>
-					<?php endif; ?>
+					<li><a href="<?=path?>/index.php?pg=plans"><i class="far fa-gem"></i> <?=$lang['menu']['plans']?></a></li>
 					<?php
-					$sql = $db->query("SELECT * FROM ".prefix."pages WHERE header = 0 ORDER BY sort ASC");
+					$sql = $db->query("SELECT * FROM ".prefix."pages WHERE header = 0 AND id!=1 AND id!= 3 ORDER BY sort ASC");
 					if($sql->num_rows):
 					while($rs = $sql->fetch_assoc()):
 					?>

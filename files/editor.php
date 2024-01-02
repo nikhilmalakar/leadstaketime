@@ -92,11 +92,11 @@ $questionColors["file"]     = "bro";
 									 <a rel="pt-editornavsurvey">Survey Details</a>
 									 <a class="pt-active" rel="pt-editornavform"><?php echo $lang['editor']["form"] ?></a>
 									 <a rel="pt-editornavpreview"><?php echo $lang['editor']["preview"] ?></a>
-									 <a rel="pt-editornavlogics" class="relative"><?php echo $lang['editor']["logics"] ?>
+									 <!-- <a rel="pt-editornavlogics" class="relative"><?php echo $lang['editor']["logics"] ?>
 										 <div class="pt-textinfo"><i class="fas fa-question" data-toggle="tooltip" data-placement="top" title="<?php echo $lang['editor']["logics_i"] ?>"></i></div>
 									 </a>
 									 <a rel="pt-editornavoptions"><?php echo $lang['editor']["options"] ?></a>
-									 <a rel="pt-editornavdesign"><?php echo $lang['editor']["design"] ?></a>
+									 <a rel="pt-editornavdesign"><?php echo $lang['editor']["design"] ?></a> -->
 								 </div>
 							 </div>
 
@@ -125,20 +125,6 @@ $questionColors["file"]     = "bro";
 								<input type="text" name="survey_enddate" value="<?php echo ($id && ($rs['enddate']) ? date("m/d/Y h:i a", $rs['enddate']) : "" ) ?>" id="datepicker" class="datepicker-here" placeholder="<?php echo $lang['editor']["edate"] ?>">
 							</div>
 						</div>
-					</div>
-
-					<div class="pt-form-i">
-						<span class="pt-icon"><i class="fas fa-link"></i></span>
-						<input type="text" name="survey_url" value="<?php echo ($id && ($rs['url']) ? $rs['url'] : "" ) ?>" placeholder="<?php echo $lang['editor']["url"] ?>">
-						<div class="pt-textinfo">
-							<i class="fas fa-question" data-toggle="tooltip" data-placement="left" title="<?php echo $lang['editor']["url_i"] ?>"></i>
-						</div>
-					</div>
-
-					<div class="pt-form-i">
-						<span class="pt-icon"><i class="fas fa-lock"></i></span>
-						<input type="password" name="survey_password" value="<?php echo ($id && ($rs['password']) ? $rs['password'] : "" ) ?>" placeholder="<?php echo $lang['editor']["pass"] ?>">
-						<div class="pt-textinfo"><i class="fas fa-question" data-toggle="tooltip" data-placement="left" title="<?php echo $lang['editor']["pass_i"] ?>"></i></div>
 					</div>
 
 					<div class="pt-radio-slide">
@@ -384,7 +370,7 @@ $questionColors["file"]     = "bro";
 			<p class="pt-drageinfo"><?php echo $lang['editor']["nofound"] ?></p>
 		</div>
 
-		<?php
+		<!-- <?php
 			/* ----------------------------
 							Editor Logics
 			 ----------------------------*/?>
@@ -409,7 +395,7 @@ $questionColors["file"]     = "bro";
 
 		<div class="pt-editorbody pt-editornavdesign">
 			<?php include __DIR__.'/editor/design.php'; ?>
-		</div>
+		</div> -->
 
 
 		<?php
@@ -420,13 +406,7 @@ $questionColors["file"]     = "bro";
 		<div class="pt-editorsubmit">
 			<div class="row">
 				<div class="col-6">
-					<div class="pt-radio-slide text-left">
-						<input name="survey_status" class="tgl tgl-light" id="survey_status" type="checkbox" <?php echo ($id && $rs['status']?'checked':'') ?>>
-						<label class="tgl-btn" for="survey_status"></label>
-						<b><?php echo $lang['editor']["unpublished"] ?>
-							<div class="pt-textinfo"><i class="fas fa-question-circle" data-toggle="tooltip" data-placement="right" title="<?php echo $lang['editor']["unpublished_i"] ?>"></i></div>
-						</b>
-					</div>
+					
 				</div>
 				<div class="col-6">
 					<?php if ($id): ?><input type="hidden" name="survey_id" value="<?php echo $id ?>" /><?php endif; ?>

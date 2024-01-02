@@ -38,7 +38,7 @@ $a        = $SITE_COLORS['a'] ?? "#5385f1";
 $body     = $SITE_COLORS['body'] ?? "#f2f3f7";
 $header   = $SITE_COLORS['header'] ?? "#38395f";
 $header_t = $SITE_COLORS['header_t'] ?? "#2a2b4a";
-$header_m = $SITE_COLORS['header_m'] ?? "#22233e";
+$header_m = $SITE_COLORS['header_m'] ?? "#2c6c2c";
 
 $btn1     = $SITE_COLORS['btn1'] ?? "#3f79fc";
 $btn2     = $SITE_COLORS['btn2'] ?? "#6694fa";
@@ -76,10 +76,18 @@ body.pt-bodyhome {
 }
 a, a:hover, a:focus,
 .pt-dashboardpage .pt-admin-nav .pt-logo {
-    color: <?php echo $a ?>;
+    color: #3dbb3d;
 }
 .pt-body .table .pt-progress-line span {
-	background: <?php echo $a ?>;
+	background: #3dbb3d;
+}
+.pt-loginpage, body.pt-nouser,
+.pt-header,
+.pt-surveybg,
+.pt-section.pt-topsurvys,
+.pt-bodyhome .pt-footer,
+.pt-dashboardpage .pt-admin-nav {
+  background: <?php echo $header ?>;
 }
 .pt-header .pt-menu .pt-links-r ul li a {
     /*color: #a4bdf6;*/
@@ -89,7 +97,7 @@ a, a:hover, a:focus,
 	box-shadow: 0 0 0 4px <?php echo $header ?>, 0 0 0 5px #fff;
 }
 .tgl-light:checked + .tgl-btn {
-    background: <?php echo $a ?>;
+    background: #3dbb3d;
 }
 .choice[type=checkbox]:checked + label:before {
   background-color: <?php echo $a ?>;
@@ -175,11 +183,11 @@ a, a:hover, a:focus,
 
 .pt-btn {
 	/*background-image: linear-gradient(to top, #3f79fc 0%, #6694fa 100%);*/
-	background-image: linear-gradient(to top, <?php echo $btn1 ?> 0%, <?php echo $btn2 ?> 100%);
+	background-image: linear-gradient(to top, #3dbb3d  0%, #4ad84a  100%);
 }
 .pt-btn:hover {
     color: #FFF;
-    background-image: linear-gradient(to top, <?php echo $btn2 ?> 0%, <?php echo $btn1 ?> 100%);
+    background-image: linear-gradient(to top, #4ad84a  0%, #3dbb3d  100%);
 }
 .pt-btn.btn-red {
     background-image: linear-gradient(to top, <?php echo $btn3_1 ?> 0%, <?php echo $btn3_2 ?> 100%);

@@ -1025,7 +1025,7 @@ pre.radius {
 }
 .pt-header .pt-menu .pt-links-r ul li a.pt-user + ul li a i, .pt-header .pt-menu .pt-links-r ul li a.pt-user + ul li a svg {
   margin-right: 6px;
-  color: #a4bdf6;
+  color: #3dbb3da1;
   width: 17px;
   transition: all 0.3s;
 }
@@ -1041,7 +1041,7 @@ pre.radius {
   border-radius: 10px;
 }
 .pt-header .pt-menu .pt-links-r ul li a.pt-user + ul li a:hover {
-  background: #EEF;
+  background: #3dbb3d4d;
   border-radius: 3px;
   color: #292b4a;
 }
@@ -1150,14 +1150,14 @@ pre.radius {
   right: 24px;
   top: 10px;
   font-size: 15px;
-  color: #447cfb;
+  color: #000;
   box-shadow: 0px 1px 6px 0px rgba(42, 43, 74, 0.18);
   /* visibility: hidden;
   opacity: 0; */
   transition: all 0.4s;
 }
 .pt-body .table .pt-options .pt-options-link.active {
-  background-image: linear-gradient(to top, #3f79fc 0%, #6694fa 100%);
+  background-image: linear-gradient(to top, #4ad84a  0%, #3dbb3d  100%);
   color: #FFF;
   visibility: visible;
   opacity: 1;
@@ -3408,7 +3408,7 @@ body.pt-nouser {
   overflow: initial;
 }
 .pt-surveyeditor .pt-editorcontents .pt-editorbody.pt-editornavpreview {
-  background: #2a2b4a;
+  background: #3dbb3d;
 }
 .pt-surveyeditor .pt-editorcontents .pt-editorbody .pt-images-up:after {
   content: "";
