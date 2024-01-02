@@ -81,14 +81,7 @@ a, a:hover, a:focus,
 .pt-body .table .pt-progress-line span {
 	background: #3dbb3d;
 }
-.pt-loginpage, body.pt-nouser,
-.pt-header,
-.pt-surveybg,
-.pt-section.pt-topsurvys,
-.pt-bodyhome .pt-footer,
-.pt-dashboardpage .pt-admin-nav {
-  background: <?php echo $header ?>;
-}
+
 .pt-header .pt-menu .pt-links-r ul li a {
     /*color: #a4bdf6;*/
     color: #FFF;
@@ -108,10 +101,6 @@ a, a:hover, a:focus,
     box-shadow: 0 0 0 4px <?php echo $a ?> inset;
 }
 
-.pt-header .pt-header-top,
-.pt-footer .pt-social a {
-	background: <?php echo $header_t ?>;
-}
 .pt-header .pt-top-menu .pt-left-menu li:first-of-type a {
     <!-- background: linear-gradient(0deg, rgba(238, 238, 238, 0) 0%, <?php echo $header_t ?> 100%); -->
 }
@@ -135,48 +124,10 @@ a, a:hover, a:focus,
 }
 
 
-.pt-section.pt-features ul li:nth-of-type(2) .pt-content {
-    background: linear-gradient(119deg, <?php echo $features2 ?> 0%, <?php echo $features1 ?> 88%);
-}
-.pt-section.pt-features ul li:nth-of-type(2) .pt-content span {
-	box-shadow: 0 0 0 6px <?php echo $features1 ?>, 0 0 0 9px #fff;
-}
-.pt-section.pt-features ul li .pt-content span {
-	color: <?php echo $header ?>;
-  border: 3px solid <?php echo $header ?>;
-	box-shadow: 0 0 0 6px #ffffff, 0 0 0 9px <?php echo $header ?>;
-}
-.pt-section.pt-features ul li .pt-content h3 {
-	color: <?php echo $header ?>;
-}
-.pt-section.pt-features ul li .pt-content a {
-	border: 2px solid <?php echo $home_a1 ?>;
-  color: <?php echo $home_a1 ?>;
-}
-.pt-section.pt-features ul li:nth-of-type(2) .pt-content a {
-    color: <?php echo $home_a1_c ?>;
-    background: <?php echo $home_a1 ?>;
-}
-.pt-section.pt-features .pt-links a:first-of-type {
-    background: <?php echo $home_a1 ?>;
-		color: <?php echo $home_a1_c ?>;
-}
-.pt-section.pt-features .pt-links a:last-of-type {
-    background: linear-gradient(119deg, <?php echo $home_a3_1 ?> 0%, <?php echo $home_a3_2 ?> 88%);
-		color: <?php echo $home_a3_c ?>;
-}
-
 .pt-section .pt-stitle h3:before,
 .pt-section .pt-stitle h3:after,
 .pt-section .pt-stitle p:before {
 	background: <?php echo $a ?>;
-}
-
-
-
-
-.pt-plans .col:nth-of-type(3) .pt-plan {
-	background: <?php echo $plans ?>;
 }
 
 
@@ -217,20 +168,7 @@ a, a:hover, a:focus,
 	color: <?php echo $btn5_2 ?>;
 }
 
-.pt-login .pt-footer a {
-    color: <?php echo hex2rgba("#FFF", 70) ?>;
-}
 
-
-#registrationModal .modal-footer button, #loginModal .modal-footer button {
-    background: <?php echo $home_a2 ?> !important;
-		border-color: <?php echo $home_a2 ?> !important;
-		color: <?php echo $home_a2_c ?>;
-		box-shadow: 0 3px 10px <?php echo hex2rgba($home_a2, 50) ?> !important;
-}
-#registrationModal .modal-footer p span, #loginModal .modal-footer p span {
-	color: <?php echo $home_a2 ?>;
-}
 
 #registrationModal input, #loginModal input,
 .pt-header .pt-login-form label.pt-input-icon input,
@@ -261,24 +199,7 @@ input[type=text], input[type=password], input[type=phone], input[type=email], in
 
 .pt-breadcrump li a {
   color: #000;
-}
-.pt-breadcrump li,
-.pt-section .pt-stitle h3 {
-  color: <?php echo $header_t ?>;
-}
-.pt-header .pt-menu .pt-links-l ul li {
-	background: <?php echo $header_m ?>;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-	border-left: 1px solid rgba(0, 0, 0, 0.08);
-}
-.pt-header .pt-menu .pt-links-l ul li a,
-.pt-header .pt-menu .pt-links-r ul li a.pt-user {
-	/*color: #cccce9;*/
-	color: #FFF;
-}
-.pt-footer a {
-    color: <?php echo $a ?>;
-}
+} 
 
 #example-async .actions ul li a[href="#previous"], #example-async .actions ul li a[href="#next"], #example-async .actions ul li a[href="#finish"] {
 	background-image: linear-gradient(to top, <?php echo $btn1 ?> 0%, <?php echo $btn2 ?> 100%);
@@ -312,7 +233,4 @@ input[type=text], input[type=password], input[type=phone], input[type=email], in
 .custom-shape-divider-top-1606478547 .shape-fill {
     fill: <?php echo $header ?>;
 }
-.alba-footer {
-	transform: rotate(180deg);
-  margin-top: 120px;
-}
+
