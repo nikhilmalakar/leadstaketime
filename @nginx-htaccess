@@ -1,0 +1,48 @@
+
+location /plans {
+  rewrite ^/plans/?$ /index.php?pg=plans;
+}
+
+location /mysurveys {
+  rewrite ^/mysurveys/?$ /index.php?pg=mysurveys;
+  rewrite ^/mysurveys/page/([0-9-]+)/?$ /index.php?pg=mysurveys&page=$1?;
+}
+
+location /p {
+  rewrite ^/p([0-9-]+)/(.*)/?$ /index.php?pg=pages&id=$1&t=$2?;
+}
+
+location /s {
+  rewrite ^/s([0-9-]+)/(.*)/?$ /index.php?pg=survey&id=$1&t=$2;
+}
+
+location /v {
+  rewrite ^/v([0-9-]+)/(.*)/?$ /index.php?pg=survey&id=$1&t=$2&request=su;
+}
+
+location /surveys {
+  rewrite ^/surveys/all/?$ /index.php?pg=mysurveys&request=all;
+  rewrite ^/surveys/all/page/([0-9-]+)/?$ /index.php?pg=mysurveys&request=all&page=$1?;
+}
+
+location /new {
+  rewrite ^/new\/survey/?$ /index.php?pg=editor;
+}
+
+location /edit {
+  rewrite ^/edit/survey/([0-9-]+)/?$ /index.php?pg=editor&id=$1?;
+}
+
+location /user {
+  rewrite ^/user/details\/([0-9-]+)/?$ /index.php?pg=userdetails&id=$1?;
+  rewrite ^/user/details/?$ /index.php?pg=userdetails;
+}
+
+location /responses {
+  rewrite ^/responses/([0-9-]+)/page/([0-9-]+)/?$ /index.php?pg=responses&id=$1&page=$2?;
+  rewrite ^/responses/([0-9-]+)/?$ /index.php?pg=responses&id=$1?;
+}
+
+location /report {
+  rewrite ^/report/([0-9-]+)/?$ /index.php?pg=report&id=$1?;
+}

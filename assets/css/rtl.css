@@ -1,0 +1,353 @@
+html, body {
+	direction: rtl;
+	text-align: right;
+	font-family: "El Messiri";
+}
+*, html, body, a, h1, h2, h3, h4, h5, h6 {
+	font-family: "El Messiri" !important;
+	/*font-family: "Harmattan";*/
+}
+
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free" !important;
+}
+.fab {
+    font-family: "Font Awesome 5 Brands" !important;
+}
+.icons {
+		font-family: 'simple-line-icons' !important;
+}
+
+.pt-header .pt-menu .pt-logo,
+.pt-header .pt-menu .pt-links-l,
+.pt-header .pt-menu .pt-links-l ul li,
+.pt-header .pt-menu .pt-links-r ul li {
+  float: right;
+}
+
+.pt-header .pt-menu .pt-logo {
+  margin-right: 0;
+  margin-left: 24px;
+}
+
+.pt-header .pt-menu .pt-links-r {
+  float: left;
+}
+
+.pt-header .pt-menu .pt-links-r ul li a.pt-user + ul li a i, .pt-header .pt-menu .pt-links-r ul li a.pt-user + ul li a svg {
+  margin-right: 0;
+  margin-left: 6px;
+}
+
+.pt-header .pt-menu .pt-links-r ul li a.pt-user + ul {
+	right: auto;
+	left: 0;
+}
+.pt-header .pt-menu .pt-links-r ul li a.pt-user + ul.open {
+	right: auto;
+  left: -8px;
+}
+
+.pt-header .pt-menu .pt-links-r ul li a.pt-user {
+    margin-right: 18px;
+    margin-left: 0;
+}
+
+.tgl + .tgl-btn:after {
+  left: auto;
+  right: 0;
+}
+.tgl:checked + .tgl-btn:after {
+    left: auto;
+    right: 50%;
+}
+
+.pt-body .table .pt-options .pt-options-link {
+	right: auto;
+	left: 24px;
+}
+.pt-body .table .pt-progress span {
+  float: right;
+}
+.pt-body .pt-title .pt-options {
+  top: 18px;
+  right: auto;
+  left: 6px;
+}
+
+.pt-dashboardpage .pt-admin-nav .pt-logo {
+	margin-left: 0;
+	margin-right: 30px;
+}
+.pt-dashboardpage .pt-admin-nav ul li a {
+	margin-right: -32px;
+	margin-left: 0;
+	border-radius: 0 44px 44px 0;
+}
+.pt-dashboardpage .pt-admin-nav ul li.pt-active a:before, .pt-dashboardpage .pt-admin-nav ul li.pt-active a:after {
+	right: auto;
+	left: 0;
+}
+.pt-dashboardpage .pt-admin-nav ul li.pt-active a:before {
+  transform: rotate(28deg);
+}
+.pt-dashboardpage .pt-admin-nav ul li.pt-active a:after {
+  bottom: -30px;
+  transform: rotate(140deg);
+}
+.pt-dashboardpage .pt-admin-nav ul li a i, .pt-dashboardpage .pt-admin-nav ul li a svg {
+    margin-left: 26px;
+    margin-right: 0;
+}
+
+.pt-dashboardpage .pt-admin-body {
+	right: auto;
+  left: -100px;
+	padding-right: 68px;
+	padding-left: 168px;
+}
+
+
+.right {
+    float: left !important;
+}
+.left {
+    float: right !important;
+}
+
+.pt-header .pt-header-top a i {
+    margin-right: 24px;
+    margin-left: 8px;
+}
+
+.pt-header .pt-header-top a:first-of-type i {
+    margin-right: 0;
+}
+
+.pt-header .pt-top-menu .pt-logo {
+    float: right;
+}
+.pt-header .pt-top-menu .pt-left-menu {
+    float: right;
+    margin-right: 48px;
+    margin-left: 0;
+}
+.pt-header .pt-top-menu .pt-left-menu li {
+    float: right;
+}
+
+.pt-header .pt-top-menu .pt-right-menu {
+    float: left;
+}
+.pt-header .pt-top-menu .pt-right-menu li {
+    float: right;
+}
+.ml-1, .mx-1 {
+    margin-left: 0!important;
+    margin-right: 0.25rem!important;
+}
+
+.pt-header .pt-context:after {
+    left: 0;
+    right: auto;
+}
+.pt-header .pt-login-form ul {
+	left: 0;
+	right: auto;
+}
+.pt-header .pt-header-top a.pt-log {
+	    margin-left: 0;
+	    margin-right: 12px;
+}
+.modal-header .close {
+	margin: -1rem auto -1rem -1rem;
+}
+.pt-breadcrump li {
+	float: right;
+}
+.pt-breadcrump li:before {
+	left: -32px;
+	right: auto;
+  transform: rotate(-62deg);
+}
+.pt-header .pt-menu .pt-links-r ul li a.pt-btn {
+	margin-right: 16px;
+	margin-left: 0;
+  width: auto;
+}
+.pt-header .pt-menu .pt-links-l ul li {
+    float: right;
+    border-left: 1px solid #2a2b4a;
+    border-right: 1px solid #11121e;
+}
+.pt-header .pt-menu .pt-links-l ul li:last-of-type {
+    border-right: 1px solid #11121e;
+    border-left: 0;
+    border-radius: 5px 0 0 5px;
+}
+.pt-header .pt-menu .pt-links-l ul li:first-of-type {
+    border-right: 0;
+    border-left: 1px solid #2a2b4a;
+    border-radius: 0 5px 5px 0;
+}
+.pt-pagination li {
+    float: right;
+}
+
+.pt-body .table .pt-options ul,
+.pt-body .table .pt-options ul.open {
+    left: 40px;
+    right: auto;
+}
+.pt-body .table .pt-options ul.open li a i, .pt-body .table .pt-options ul.open li a svg {
+    margin-left: 6px;
+    margin-right: 0;
+}
+.pt-surveyeditor .pt-editorsubmit .col-6:last-of-type {
+	text-align: left;
+}
+.text-left {
+	text-align: right!important;
+}
+.tgl + .tgl-btn {
+	float: right;
+}
+.pt-surveyeditor .pt-editorcontents .pt-radio-slide label {
+    margin-left: 14px;
+    margin-right: 0;
+}
+.pt-radio-slide .pt-textinfo {
+    left: -22px;
+    right: auto;
+}
+.pt-form-i input[type=text], .pt-form-i input[type=password], .pt-form-i input[type=phone], .pt-form-i input[type=email], .pt-form-i select, .pt-form-i textarea, .pt-form-i .bootstrap-select .btn {
+    padding-right: 52px;
+    padding-left: 0;
+}
+.pt-textinfo {
+    left: 26px;
+    right: auto;
+}
+.pt-form-i span.pt-icon {
+
+    right: 16px;
+    left: auto;
+}
+
+.pt-surveyeditor .pt-editorcontents .pt-editorbody .pt-new-step-content .pt-options {
+    right: auto;
+    left: 0;
+}
+
+.pt-surveyeditor .pt-editorcontents .pt-editorbody .pt-new-step-content .pt-badge:first-of-type {
+    border-radius: 0 3px 3px 0;
+}
+.pt-surveyeditor .pt-editorcontents .pt-editorbody .pt-new-step-content .pt-badge:last-of-type {
+    border-radius: 3px 0 0 3px;
+}
+.pt-header .pt-menu .pt-links-r ul li a.pt-user + ul li a .badge {
+    float: left;
+}
+.file-select {
+	text-align: right;
+}
+
+.choice + label:before {
+	margin-left: 8px;
+	margin-right: 0;
+}
+.mr-4, .mx-4 {
+    margin-right: 0;
+    margin-left: 1.5rem!important;
+}
+.form-group + .form-group {
+    margin-right: 16px;
+    margin-left: 0;
+}
+.pt-editorpage .form-group + .form-group {
+    margin-right: 0;
+    /* margin-left: 0; */
+}
+.bootstrap-select .dropdown-toggle .filter-option {
+	right: 0;
+	left: auto;
+    float: right;
+		text-align: right;
+}
+.dropdown-toggle::after, .dropup .dropdown-toggle::after {
+    margin-right: -22px;
+    margin-left: 0px;
+}
+.pt-likertscale .rating-group label:first-of-type {
+    border-radius: 0 15px 15px 0;
+}
+.pt-likertscale .rating-group label:last-of-type {
+    border-radius: 15px 0 0 15px;
+}
+
+.pt-likertscale .pt-likelynot.pt-likelynot {
+    left: auto;
+    right: 12px;
+}
+.pt-likertscale .pt-likelyext.pt-likelyext {
+    right: auto;
+    left: 12px;
+}
+
+.pt-surveypage .pt-title .pt-options, .pt-reportpage .pt-title .pt-options {
+    top: -46px;
+}
+.pt-rapport-q h3 .pt-options {
+    float: left;
+}
+
+.pt-editor-answers .pt-delete {
+
+    left: 11px;
+    right: auto;
+}
+.pt-header .pt-menu .pt-links-r ul li a.pt-user .pt-thumb {
+    float: right;
+    margin: 8px 0 0 8px;
+}
+.pt-dashboardpage .pt-admin-nav ul li a b {
+	right: -13px;
+	left: auto;
+	line-height: 15px;
+	top: 22px;
+}
+.pt-dashboardpage .pt-admin-nav ul li a:hover b {
+
+	top: 34px;
+}
+
+.pt-dashboardpage .pt-admin-body .pt-admin-box .pt-content .pt-thumb {
+	margin-right: 0;
+	margin-left: 12px;
+}
+.pt-dashboardpage .pt-admin-body .pt-admin-box .pt-content p span {
+    margin-right: 0;
+    margin-left: 12px;
+}
+.pt-dashboardpage .pt-plans .pt-options {
+    float: left;
+}
+.pt-dashboardpage .pt-admin-body .pt-body .pt-thumb {
+    margin-left: 12px;
+    margin-right: 0;
+    float: right;
+}
+.pt-section.pt-topsurvys ul li .pt-thumb {
+
+    float: right;
+    margin-left: 12px;
+    margin-right: 0;
+}
+.pt-form-phone .dropdown.bootstrap-select {
+    right: 46px;
+    left: auto;
+}
+.pt-survey.pt-newsurvey .pt-form-phone input {
+    padding-right: 132px;
+    padding-left: 12px;
+}

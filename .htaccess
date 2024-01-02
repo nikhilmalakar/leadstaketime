@@ -1,0 +1,60 @@
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css|css)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+
+RewriteEngine on
+
+RewriteRule ^mysurveys/?$ index.php?pg=mysurveys [NC]
+RewriteRule ^mysurveys/page/([0-9-]+)/?$ index.php?pg=mysurveys&page=$1? [NC]
+
+
+
+
+RewriteRule ^p([0-9-]+)/(.*)/?$ index.php?pg=pages&id=$1&t=$2? [NC]
+
+RewriteRule ^plans/?$ index.php?pg=plans [NC]
+
+
+
+
+
+
+
+RewriteRule ^surveys/all/?$ index.php?pg=mysurveys&request=all [NC]
+RewriteRule ^surveys/all/page/([0-9-]+)/?$ index.php?pg=mysurveys&request=all&page=$1? [NC]
+
+RewriteRule ^index/?$ index.php? [NC]
+RewriteRule ^index/page/([0-9-]+)/?$ index.php?page=$1? [NC]
+
+
+RewriteRule ^new\/survey/?$ index.php?pg=editor [NC]
+
+#RewriteRule ^surveys/all/?$ index.php?request=all [NC]
+#RewriteRule ^surveys/all/page/([0-9-]+)/?$ index.php?request=all&page=$1? [NC]
+
+RewriteRule ^user/details/([0-9-]+)/?$ index.php?pg=userdetails&id=$1? [NC]
+RewriteRule ^user/details/?$ index.php?pg=userdetails [NC]
+
+
+RewriteRule ^v([0-9-]+)/([A-Za-z0-9-]+)/?$ index.php?pg=survey&t=$2&id=$1&request=su [NC]
+RewriteRule ^s([0-9-]+)/([A-Za-z0-9-]+)/?$ index.php?pg=survey&t=$2&id=$1 [NC]
+RewriteRule ^v([0-9-]+)/?$ index.php?pg=survey&id=$1&request=su [NC]
+RewriteRule ^s([0-9-]+)/?$ index.php?pg=survey&id=$1? [NC]
+RewriteRule ^edit/survey/([0-9-]+)/?$ index.php?pg=editor&id=$1? [NC]
+
+RewriteRule ^responses/([0-9-]+)/page/([0-9-]+)/?$ index.php?pg=responses&id=$1&page=$2? [NC]
+RewriteRule ^responses/([0-9-]+)/?$ index.php?pg=responses&id=$1? [NC]
+RewriteRule ^report/([0-9-]+)/?$ index.php?pg=report&id=$1? [NC]
+
+RewriteRule ^dashboard/([A-Za-z0-9-]+)/page/([0-9-]+)/?$ dashboard.php\?pg=$1&page=$2 [NC]
+RewriteRule ^dashboard/([A-Za-z0-9-]+)/request/([A-Za-z0-9-]+)/([0-9-]+)?$ dashboard.php\?pg=$1&request=$2&id=$3 [NC]
+RewriteRule ^dashboard/([A-Za-z0-9-]+)/request/([A-Za-z0-9-]+)?$ dashboard.php\?pg=$1&request=$2 [NC]
+RewriteRule ^dashboard/([A-Za-z0-9-]+)/?$ dashboard.php\?pg=$1 [NC]
+RewriteRule ^dashboard/?$ dashboard.php? [NC]
+
+#RewriteCond %{HTTPS} !on
+#RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+#RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
