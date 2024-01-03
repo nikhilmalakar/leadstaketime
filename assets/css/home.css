@@ -324,16 +324,29 @@ a, a:hover, a:active {
 }
 /* } */
 
-
-.hero-section img{
-  height:475px;
+.pt-wrapper .navbar .navbar-nav .nav-action-button a{
+  /* background-color: #1e721e!important; */
+  color: #fff !important;
 }
+
+@media (max-width: 990px){
+  .nav-item{
+    padding: 10px 0 !important;
+    text-align: center;
+    /* width: 50%; */
+  }
+  .nav-action-button{
+    margin: 10px 0 !important;
+    text-align: center;
+    /* width: 50%; */
+  }
+}
+
 @media (max-width:480px){
   .hero-section img{
     display:none;
   }  
 }
-
 
 .pt-header .pt-context h1 {
   font-size: 50px;

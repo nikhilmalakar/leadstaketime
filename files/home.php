@@ -61,208 +61,65 @@
 	<?php endif; ?>
 </head>
 <body class="pt-bodyhome">
-
 	<div class="pt-wrapper">
-		<div class="pt-header">
-			<!-- <?php if ( !site_hidetopbar ): ?>
-				<div class="pt-header-top">
-			<h1>header</h1>
-			<div class="pt-container">
-				<?php if ( site_email ): ?> <a><i class="far fa-envelope-open"></i> <?=site_email?></a> <?php endif; ?>
-				<?php if ( site_phone ): ?> <a><i class="fas fa-phone-volume"></i> <?=site_phone?></a> <?php endif; ?>
 
-				<?php if (!us_level): ?>
-				<div class="right pt-login-form">
-					<a class="pt-log"><?=$lang['home']['login']?></a>
-					<ul class="pt-drops">
-						<li>
-							<form id="pt-send-signin">
+	<!-- ------------------------- HEADER NAV BAR ------------------------------------ -->
+<nav class="container navbar navbar-expand-lg navbar-light bg-white">
+	<a href="#" class="navbar-brand">
+        <img src="./assets/img/leadstaketime_logo.png" height="56" alt="CoolBrand">
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 
-								<label class="pt-input-icon">
-									<span><i class="fas fa-user"></i></span>
-									<input type="text" name="sign_name" placeholder="<?=$lang['login']['username']?>" />
-								</label>
-								<label class="pt-input-icon">
-									<span><i class="fas fa-key"></i></span>
-									<input type="password" name="sign_pass" placeholder="<?=$lang['login']['password']?>" />
-								</label>
-								<button type="submit"><?=$lang['login']['button']?></button>
-
-								<?php if(site_register && (login_facebook || login_twitter || login_google)): ?>
-								<div class="pt-social-login">
-									<b><?=$lang['home']['login2']?></b>
-									<?php if(login_facebook): ?> <a class="facebook" href="<?=$facebookLoginUrl?>"><i class="fab fa-facebook"></i></a> <?php endif; ?>
-									<?php if(login_twitter): ?> <a class="twitter" href="<?=$twitterLoginUrl?>"><i class="fab fa-twitter"></i></a> <?php endif; ?>
-									<?php if(login_google): ?> <a class="google" href="<?=$googleLoginUrl?>"><i class="fab fa-google"></i></a> <?php endif; ?>
-								</div>
-								<?php endif; ?>
-								<?php if(site_register): ?>
-								<p><?=$lang['login']['footer']?> <span href="#registrationModal" data-toggle="modal"><?=$lang['login']['footer_l']?></span></p>
-								<?php endif; ?>
-
-
-							</form>
-						</li>
-					</ul>
-				</div>
-				<?php endif; ?>
-
-				<a class="right" href="<?=support_link?>"><i class="fas fa-headset"></i> <?=$lang['home']['support']?></a>
+	<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+		<li class="nav-item">
+			<a class="" href="./">Home <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item">
+			<a class="" href="#">About Us</a>
+		</li>
+		<li class="nav-item">
+			<a class="" href="#">Contact Us</a>
+		</li>
+		</ul>
+		<div class="navbar-nav ms-auto">
+			<div class="nav-action-button">
+				<a href="./plans" class="nav-item">Pricing</a>
+			</div>
+			<div class="nav-action-button">
+				<a href="./mysurveys" class="nav-item">Get Started</a>
 			</div>
 		</div>
-		<?php endif; ?> -->
+  </div>
+</nav>
 
-		<div class="pt-container">
-			<div class="pt-top-menu">
-				<div class="pt-mobile-header">
-						<div class="pt-logo">
-							<img src="" onerror="this.src='<?=path?>/assets/img/leadstaketime_logo.png'" alt="<?=site_title?>">
-						</div>
-					<div class=" pt-mobmenu">
-						<a href="#" class="pt-mobmenulink"><i class="fas fa-bars"></i></a>
-						<ul class="pt-left-menu pt-drop">
-							<li><a href="<?=path?>"><?=$lang['home']['home']?></a></li>
-							<?php
-							$sql = $db->query("SELECT * FROM ".prefix."pages WHERE header = 0 ORDER BY sort ASC");
-							if($sql->num_rows):
-							while($rs = $sql->fetch_assoc()):
-							?>
-							<li><a href="<?=path?>/index.php?pg=pages&id=<?=$rs['id']?>&t=<?=fh_seoURL($rs['title'])?>"><?=$rs['title']?></a></li>
-							<?php endwhile; ?>
-							<?php endif; ?>
-							<?php $sql->close(); ?>
-						</ul>
-						<ul class="pt-right-menu">
-		
-						<!------------------------------------ SUBSCRIPTION PLANS --------------------------------------- -->
-							<!-- <?php if( site_plans ): ?> 
-							<li><a href="<?=path?>/index.php?pg=plans"><i class="far fa-gem"></i> <?=$lang['menu']['plans']?></a></li> 
-							<?php endif; ?> -->
-							<li><a href="<?=path?>/index.php?pg=mysurveys" class="pt-started"><?=(!us_level?$lang['home']['get']:$lang['menu']['my'])?></a></li>
-							<?php if ( !us_level ): ?>
-							<?php if ( site_hidetopbar ): ?>
-							<li class="pt-login-form">
-								<a class="pt-log"><?=$lang['home']['login']?></a>
-								<ul class="pt-drops">
-									<li>
-										<form id="pt-send-signin">
-		
-											<label class="pt-input-icon">
-												<span><i class="fas fa-user"></i></span>
-												<input type="text" name="sign_name" placeholder="<?=$lang['login']['username']?>" />
-											</label>
-											<label class="pt-input-icon">
-												<span><i class="fas fa-key"></i></span>
-												<input type="password" name="sign_pass" placeholder="<?=$lang['login']['password']?>" />
-											</label>
-											<button type="submit"><?=$lang['login']['button']?></button>
-		
-											<?php if(site_register && (login_facebook || login_twitter || login_google)): ?>
-											<div class="pt-social-login">
-												<b><?=$lang['home']['login2']?></b>
-												<?php if(login_facebook): ?> <a class="facebook" href="<?=$facebookLoginUrl?>"><i class="fab fa-facebook"></i></a> <?php endif; ?>
-												<?php if(login_twitter): ?> <a class="twitter" href="<?=$twitterLoginUrl?>"><i class="fab fa-twitter"></i></a> <?php endif; ?>
-												<?php if(login_google): ?> <a class="google" href="<?=$googleLoginUrl?>"><i class="fab fa-google"></i></a> <?php endif; ?>
-											</div>
-											<?php endif; ?>
-											<?php if(site_register): ?>
-											<p><?=$lang['login']['footer']?> <span href="#registrationModal" data-toggle="modal"><?=$lang['login']['footer_l']?></span></p>
-											<?php endif; ?>
-		
-		
-										</form>
-									</li>
-								</ul>
-		
-							</li>
-							<?php endif; ?>
-							<?php endif; ?>
-							<?php if (us_level==6): ?>
-							<li><a href="<?=path?>/dashboard.php" class="pt-started ml-1" title="<?=$lang['menu']['admin']?>"><i class="fas fa-cogs"></i></a></li>
-							<?php endif; ?>
-						</ul>
-					</div>	
-				</div>	
-			</div>
-		</div>
 
-		<?php if(site_register): ?>
-		<form id="pt-send-signup" class="pt-form">
-		<div class="modal fade newmodal" id="registrationModal">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
 
-		      <div class="modal-header">
-		        <h4 class="modal-title"><?=$lang['login']['footer_l']?></h4>
-		        <a type="button" class="close" data-dismiss="modal">×</a>
-		      </div>
-
-		      <div class="modal-body">
-						<div class="form-groups">
-							<label class="pt-input-icon">
-								<span><i class="fas fa-user"></i></span>
-								<input type="text" name="reg_name" placeholder="<?=$lang['signup']['username']?>">
-							</label>
-						</div>
-						<div class="form-groups">
-							<label class="pt-input-icon">
-								<span><i class="fas fa-key"></i></span>
-								<input type="password" name="reg_pass" placeholder="<?=$lang['signup']['password']?>">
-							</label>
-						</div>
-						<div class="form-groups">
-							<label class="pt-input-icon">
-								<span><i class="fas fa-envelope"></i></span>
-								<input type="text" name="reg_email" placeholder="<?=$lang['signup']['email']?>">
-							</label>
-						</div>
-						<p><?=str_replace(["{link_privacy}", "{link_terms}"], ['<a href="'.privacy_link.'" target="_blank">'.$lang['home']['privacy'].'</a>', '<a href="'.terms_link.'" target="_blank">'.$lang['home']['terms'].'</a>'],$lang['home']['accepting'])?></p>
-						<div class="pt-msg"></div>
-		      </div>
-
-		      <div class="modal-footer">
-		        <button type="submit" class="btn bg-gr"><?=$lang['signup']['button']?></button>
-		      </div>
-
-		    </div>
-		  </div>
-		</div>
-		</form>
-		<?php endif; ?>
 
 		<!-- ---------------------------HERO SECTION ------------------------------------ -->
     
-		<div class="pt-container">
-			<div class="row flex-row-reverse align-items-center bg-light col-xxl-10 mx-auto py-4">
-				<div class="col-lg-4 ms-lg-4">
-					<div style="" class="lc-block mb-4">
-						<img class="img-fluid shadow" src="https://images.unsplash.com/photo-1525004866327-07739b938272?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MTZ8fGJ1aWxkaW5nfGVufDB8Mnx8fDE2MzQ1NTA4MDc&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080" alt="Photo by Kaloyan Draganov">
-					</div><!-- /lc-block -->
-				</div>
-				<div class="col-lg-7 ps-lg-4">
-					<div class="lc-block mb-4">
-						<div editable="rich">
-							<h1 class="rfs-30 fw-bold">Lorem ipsum dolor sit amet</h1>
-						</div>
-					</div>
-					<div class="lc-block mb-4">
-						<div editable="rich">
-							<p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et metus id ligula malesuada placerat sit</p>
-						</div>
-					</div>
-					<div class="lc-block">
-						<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-					</div>
-				</div>
-			</div>
-		</div>git 
 
-	</div>
-
+	<div class="container col-xxl-8 px-4 ">
+    <div class="row flex-lg-row-reverse justify-content-center align-items-center g-5 py-3 pb-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="./assets/img/iii.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="500" loading="lazy">
+      </div>
+      <div class="hero-section col-lg-6">
+        <h1 class=" display-5 fw-bold lh-1 my-3" style="font-size:48px; font-weight: 700;">Empowering Realtors, 
+			<span style="font-size:36px;">One <span style=" color:#3dbb3d;">Verified Lead</span> at a Time</span></h1>
+        <p class=" lead" style="font-weight: 500;">Get leads, screen tenants, verify them in easy way</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <button type="button" class=" btn btn-primary btn-lg px-4 my-3 me-md-2" style="background-color:#3dbb3d !important; border:1px solid #3dbb3d;">Get Started Now!</button>
+		</div>
+      </div>
+    </div>
+  </div>
 
 	<!-- ----------------------------------FEATURES------------------------------------------------- -->
 	<!-- <div class="alba-sepa"><div class="custom-shape-divider-top-1606478547"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path></svg></div></div> -->
-	<div class="pt-section pt-features">
+	<div class="pt-section pt-features" style="margin-top:20px;">
 		<div class="pt-container">
 			<div class="pt-stitle">
 				<h3>Why to choose <span>LEADS TAKE TIME?</span></h3>

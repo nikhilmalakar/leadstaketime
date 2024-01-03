@@ -78,6 +78,18 @@ a, a:hover, a:focus,
 .pt-dashboardpage .pt-admin-nav .pt-logo {
     color: #3dbb3d;
 }
+  
+.navbar a, a:hover, a:focus{
+    color: #000;
+    margin: 0 20px;
+}
+.nav-action-button {
+    color: #fff !important;
+    font-weight:700!important;
+    margin: 0 10px;
+    padding: 5px 0;
+    background-color:#3dbb3d;
+}
 .pt-body .table .pt-progress-line span {
 	background: #3dbb3d;
 }

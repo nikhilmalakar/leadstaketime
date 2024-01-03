@@ -1,1 +1,119 @@
 black, green #3DBB3D, white
+
+<div class="pt-container">
+			<div class="pt-top-menu">
+				<div class="pt-mobile-header">
+						<div class="pt-logo">
+							<img src="" onerror="this.src='<?=path?>/assets/img/leadstaketime_logo.png'" alt="<?=site_title?>">
+						</div>
+					<div class=" pt-mobmenu">
+						<a href="#" class="pt-mobmenulink"><i class="fas fa-bars"></i></a>
+						<ul class="pt-left-menu pt-drop">
+							<li><a href="<?=path?>"><?=$lang['home']['home']?></a></li>
+							<?php
+							$sql = $db->query("SELECT * FROM ".prefix."pages WHERE header = 0 ORDER BY sort ASC");
+							if($sql->num_rows):
+							while($rs = $sql->fetch_assoc()):
+							?>
+							<li><a href="<?=path?>/index.php?pg=pages&id=<?=$rs['id']?>&t=<?=fh_seoURL($rs['title'])?>"><?=$rs['title']?></a></li>
+							<?php endwhile; ?>
+							<?php endif; ?>
+							<?php $sql->close(); ?>
+						</ul>
+						<ul class="pt-right-menu">
+		
+						<!------------------------------------ SUBSCRIPTION PLANS --------------------------------------- -->
+							<!-- <?php if( site_plans ): ?> 
+							<li><a href="<?=path?>/index.php?pg=plans"><i class="far fa-gem"></i> <?=$lang['menu']['plans']?></a></li> 
+							<?php endif; ?> -->
+							<li><a href="<?=path?>/index.php?pg=mysurveys" class="pt-started"><?=(!us_level?$lang['home']['get']:$lang['menu']['my'])?></a></li>
+							<?php if ( !us_level ): ?>
+							<?php if ( site_hidetopbar ): ?>
+							<li class="pt-login-form">
+								<a class="pt-log"><?=$lang['home']['login']?></a>
+								<ul class="pt-drops">
+									<li>
+										<form id="pt-send-signin">
+		
+											<label class="pt-input-icon">
+												<span><i class="fas fa-user"></i></span>
+												<input type="text" name="sign_name" placeholder="<?=$lang['login']['username']?>" />
+											</label>
+											<label class="pt-input-icon">
+												<span><i class="fas fa-key"></i></span>
+												<input type="password" name="sign_pass" placeholder="<?=$lang['login']['password']?>" />
+											</label>
+											<button type="submit"><?=$lang['login']['button']?></button>
+		
+											<?php if(site_register && (login_facebook || login_twitter || login_google)): ?>
+											<div class="pt-social-login">
+												<b><?=$lang['home']['login2']?></b>
+												<?php if(login_facebook): ?> <a class="facebook" href="<?=$facebookLoginUrl?>"><i class="fab fa-facebook"></i></a> <?php endif; ?>
+												<?php if(login_twitter): ?> <a class="twitter" href="<?=$twitterLoginUrl?>"><i class="fab fa-twitter"></i></a> <?php endif; ?>
+												<?php if(login_google): ?> <a class="google" href="<?=$googleLoginUrl?>"><i class="fab fa-google"></i></a> <?php endif; ?>
+											</div>
+											<?php endif; ?>
+											<?php if(site_register): ?>
+											<p><?=$lang['login']['footer']?> <span href="#registrationModal" data-toggle="modal"><?=$lang['login']['footer_l']?></span></p>
+											<?php endif; ?>
+		
+		
+										</form>
+									</li>
+								</ul>
+		
+							</li>
+							<?php endif; ?>
+							<?php endif; ?>
+							<?php if (us_level==6): ?>
+							<li><a href="<?=path?>/dashboard.php" class="pt-started ml-1" title="<?=$lang['menu']['admin']?>"><i class="fas fa-cogs"></i></a></li>
+							<?php endif; ?>
+						</ul>
+					</div>	
+				</div>	
+			</div>
+		</div>
+
+		<?php if(site_register): ?>
+		<form id="pt-send-signup" class="pt-form">
+		<div class="modal fade newmodal" id="registrationModal">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+
+		      <div class="modal-header">
+		        <h4 class="modal-title"><?=$lang['login']['footer_l']?></h4>
+		        <a type="button" class="close" data-dismiss="modal">×</a>
+		      </div>
+
+		      <div class="modal-body">
+						<div class="form-groups">
+							<label class="pt-input-icon">
+								<span><i class="fas fa-user"></i></span>
+								<input type="text" name="reg_name" placeholder="<?=$lang['signup']['username']?>">
+							</label>
+						</div>
+						<div class="form-groups">
+							<label class="pt-input-icon">
+								<span><i class="fas fa-key"></i></span>
+								<input type="password" name="reg_pass" placeholder="<?=$lang['signup']['password']?>">
+							</label>
+						</div>
+						<div class="form-groups">
+							<label class="pt-input-icon">
+								<span><i class="fas fa-envelope"></i></span>
+								<input type="text" name="reg_email" placeholder="<?=$lang['signup']['email']?>">
+							</label>
+						</div>
+						<p><?=str_replace(["{link_privacy}", "{link_terms}"], ['<a href="'.privacy_link.'" target="_blank">'.$lang['home']['privacy'].'</a>', '<a href="'.terms_link.'" target="_blank">'.$lang['home']['terms'].'</a>'],$lang['home']['accepting'])?></p>
+						<div class="pt-msg"></div>
+		      </div>
+
+		      <div class="modal-footer">
+		        <button type="submit" class="btn bg-gr"><?=$lang['signup']['button']?></button>
+		      </div>
+
+		    </div>
+		  </div>
+		</div>
+		</form>
+		<?php endif; ?>
