@@ -278,80 +278,38 @@ if( !site_plans ){
 
 <!-- --------------------------------------FOOTER----------------------------------------------------- -->
 
-<div class="pt-footer">
-	<!-- SVGs -->
-	<!-- <div class="svg"><svg x="0px" y="0px" viewBox="0 186.5 1920 113.5"><polygon points="-30,300 355.167,210.5 1432.5,290 1920,198.5 1920,300"></polygon></svg></div><div class="svg svg2"><svg x="0px" y="0px" viewBox="0 186.5 1920 113.5"><polygon points="-30,300 355.167,210.5 1432.5,290 1920,198.5 1920,300"></polygon></svg></div> -->
-	<div class="container">
-		<div class="row">
-			<div class="col-3">
-				<div class="pt-logo">
-					<a href="<?=path?>">
-						<img src="" onerror="this.src='<?=path?>/assets/img/leadstaketime_logo.png'" alt="<?=site_title?>">	
-					</a></div>
-				<div class="pt-social">
-					<?php if (site_facebook): ?>
-					<a href="https://facebook.com/<?=site_facebook?>" target="_blank"><i class="fab fa-facebook"></i></a>
-					<?php endif; ?>
-					<?php if (site_instagram): ?>
-					<a href="https://instagram.com/<?=site_instagram?>" target="_blank"><i class="fab fa-instagram"></i></a>
-					<?php endif; ?>
-					<?php if (site_twitter): ?>
-					<a href="https://twitter.com/<?=site_twitter?>" target="_blank"><i class="fab fa-twitter"></i></a>
-					<?php endif; ?>
-					<?php if (site_youtube): ?>
-					<a href="https://youtube.com/<?=site_youtube?>" target="_blank"><i class="fab fa-youtube"></i></a>
-					<?php endif; ?>
-					<?php if (site_skype): ?>
-					<a href="https://skype.com/<?=site_skype?>" target="_blank"><i class="fab fa-skype"></i></a>
-					<?php endif; ?>
-				</div>
-			</div>
-			<div class="col-6">
-				<div class="pt-links">
-					<h3><?=$lang['home']['flinks']?></h3>
-					<?php
-					$sql = $db->query("SELECT * FROM ".prefix."pages WHERE footer = 0 ORDER BY sort ASC LIMIT 12");
-          if($sql->num_rows):
-          $i = 1;
-          while($rs = $sql->fetch_assoc()):
-          ?>
-          <a href="<?=path?>/index.php?pg=pages&id=<?=$rs['id']?>&t=<?=fh_seoURL($rs['title'])?>"><i class="fas fa-long-arrow-alt-<?=($lang['rtl'] == "rtl_true" ? 'left':'right')?>"></i> <?=$rs['title']?></a>
-          <?php
-          $i++;
-          if($i==7){
-            echo'</div><div class="pt-links"><h3>&nbsp;</h3>';
-            $i=0;
-          }
-          endwhile;
-          endif;
-          $sql->close();
-          ?>
-				</div>
-			</div>
-			<div class="col-3">
-				<div class="pt-copy">
-					<h3>&nbsp;</h3>
-					<div class="pt-lang">
-						<?php
-						$sql = $db->query("SELECT * FROM ".prefix."languages") or die ($db->error);
-						while ( $rs = $sql->fetch_assoc() ) {
-							echo '<a href="#" rel="'.$rs['id'].'" title="'.$rs['language'].'"><i class="flag-icon flag-icon-squared flag-icon-'.strtolower($rs['short']).'"></i></a>';
-						}
-						$sql->close();
-						?>
-					</div>
-					<?=str_replace("{link}", '<a href="'.path.'">'.site_title.'</a>',$lang['home']['copyright'])?>
-				</div>
-			</div>
-		</div>
 
-	</div>
-	<div>
-		<img src="" onerror="this.src='<?=path?>/assets/img/footer_white.png'" alt="<?=site_title?>">
-	</div>
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="./" class="mb-3 me-2 px-4 mb-md-0 text-muted text-decoration-none lh-1">
+				<img src="" onerror="this.src='<?=path?>/assets/img/leadstaketime_logo.png'" width="100"  alt="<?=site_title?>">	
+      </a>
+      <span class="mb-3 mb-md-0 text-muted" style="font-weight:600;">Leads Take Time</span>
+    </div>
 
-</div><!-- End footer -->
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3">Twitter<a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"> </use></svg></a></li>
+      <li class="ms-3">Instagram<a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"> </use></svg></a></li>
+      <li class="ms-3">Facebook<a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook">Facebook</use></svg></a></li>
+    </ul>
+  </footer>
+</div>
 
+<div class="container">
+  <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About Us</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact Us</a></li>
+    </ul>
+    <p class="text-center text-muted">© Leads Take Time | All Rights Reserved</p>
+  </footer>
+</div>
+
+<!-- End Footer -->
 
 </div><!-- End Wrapper -->
 
