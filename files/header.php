@@ -10,7 +10,7 @@ if(us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-twi
 	<div class="pt-header">
 		<div class="pt-menu">
 			<div class="pt-logo">
-			<h1>hello</h1>
+			<!-- <h1>hello</h1> -->
 				<a href="<?=path?>"><img src="<?=path?>/<?=site_logo?>" onerror="this.src='<?=path?>/assets/img/leadstaketime_logo.png'" /></a>
 			</div>
 			<div class="pt-links-l">
@@ -18,7 +18,7 @@ if(us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-twi
 				<ul class="pt-drop">
 					
 					<li><a href="<?=path?>"<?=(page=='index'&&!$pg&&$request!='all'?' class="pt-active"':'')?>><?=$lang['menu']['home']?></a></li>
-					<?php if (site_landing && us_level): ?>
+					<?php if (site_landing && us_level!=6): ?>
 						<li><a href="<?=path?>/index.php?pg=mysurveys"><?=$lang['menu']['my']?></a></li>
 					<?php endif; ?>
 					<li><a href="<?=path?>/index.php?pg=plans"><i class="far fa-gem"></i> <?=$lang['menu']['plans']?></a></li>
@@ -46,7 +46,9 @@ if(us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-twi
 						</a>
 						<?php if(us_level): ?>
 						<ul class="pt-drop">
+							<?php if(us_level != 6): ?>
 							<li><a href="#newSurveyModal" data-toggle="modal"><i class="fas fa-plus"></i> <?=$lang['menu']['new']?></a></li>
+							<?php endif; ?>
 							<?php if(us_level == 6): ?>
 							<li><a href="<?=path?>/dashboard.php"><i class="fas fa-cogs"></i> <?=$lang['menu']['admin']?></a></li>
 							<?php endif; ?>
