@@ -36,6 +36,12 @@
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,300,700">
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.5/css/flag-icons.min.css">
 
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="<?=path?>/<?=site_favicon?>" type="image/x-icon" />
+
+	<!-- Google Fonts -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,900%7CGentium+Basic:400italic&subset=latin,latin">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,300,700">
 
 	<!-- Font Awseome -->
 	<link rel="stylesheet" href="<?=path?>/assets/css/all.min.css">
@@ -65,11 +71,16 @@
 	<!-- Flag Icon -->
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.5/css/flag-icons.min.css">
 
+
+	<link rel="stylesheet" href="<?=path?>/assets/css/popupConsent.css">
+
+	<link rel="stylesheet" href="<?=path?>/assets/css/style.css">
 	<link rel="stylesheet" href="<?=path?>/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?=path?>/assets/css/popupConsent.css">
 	<link rel="stylesheet" href="<?=path?>/assets/css/home.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+	
 	<?php if($lang['rtl'] == "rtl_true"): ?>
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=El+Messiri">
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Harmattan">
