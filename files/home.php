@@ -36,6 +36,35 @@
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,300,700">
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.5/css/flag-icons.min.css">
 
+
+	<!-- Font Awseome -->
+	<link rel="stylesheet" href="<?=path?>/assets/css/all.min.css">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="<?=path?>/assets/css/bootstrap.min.css">
+
+	<!-- sceditor -->
+	<link rel="stylesheet" href="<?=path?>/assets/js/minified/themes/default.min.css" />
+
+	<!-- Datepicker -->
+	<link rel="stylesheet" href="<?=path?>/assets/css/datepicker.min.css">
+
+	<!-- Icon Picker -->
+	<link rel="stylesheet" href="<?=path?>/assets/css/fontawesome-iconpicker.min.css">
+
+	<!-- Confirm -->
+	<link rel="stylesheet" href="<?=path?>/assets/css/jquery-confirm.min.css">
+
+	<!-- Color Picker -->
+	<link rel="stylesheet" href="<?=path?>/assets/css/spectrum.css" />
+
+	<!-- Select -->
+	<link rel="stylesheet" href="<?=path?>/assets/css/bootstrap-select.min.css">
+	<link rel="stylesheet" href="<?=path?>/assets/css/select2.min.css" />
+
+	<!-- Flag Icon -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.5/css/flag-icons.min.css">
+
 	<link rel="stylesheet" href="<?=path?>/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?=path?>/assets/css/popupConsent.css">
 	<link rel="stylesheet" href="<?=path?>/assets/css/home.css">
@@ -88,9 +117,15 @@
 			<div class="nav-action-button">
 				<a href="./plans" class="nav-item">Pricing</a>
 			</div>
+			<?php if(us_level != 6): ?>
+				<div class="nav-action-button">
+					<a href="./mysurveys" class="nav-item">Get Started</a>
+				</div>
+			<?php else : ?>
 			<div class="nav-action-button">
-				<a href="./mysurveys" class="nav-item">Get Started</a>
+				<a href="./dashboard.php" class="nav-item">Admin Panel</a>
 			</div>
+			<?php endif; ?>
 		</div>
   </div>
 </nav>
@@ -187,93 +222,182 @@
 	</div>
 
 <!-- --------------------------------------PLANS----------------------------------------------------- -->
-<?php
-// include __DIR__."/header.php";
-
-if( !site_plans ){
-	echo "<div class='padding'>".fh_alerts($lang['alerts']['wrong'], "danger", path)."</div>";
-	include __DIR__."/footer.php";
-	exit;
-}
-
-?>
-
 <div class="pt-title">
 	<h3><span><i class="fas fa-dollar-sign"></i></span></h3>
-	<h3><?=$lang['plans']['title']?></h3>
-	<p><?=$lang['plans']['desc']?></p>
+	<h3><?= $lang['plans']['title'] ?></h3>
+	<p><?= $lang['plans']['desc'] ?></p>
 </div>
 
-<div class="pt-plans">
-<div class="row">
-	<?php
-	$sql = $db->query("SELECT * FROM ".prefix."plans WHERE id != 0");
-	while($value = $sql->fetch_assoc()):
-	?>
+<div class="pt-plans" style="width: 90%; margin:auto">
+	<div class="row">
 		<div class="col">
 			<div class="pt-plan">
-				<h5><?=$value['plan']?></h5>
-				<h6><span><?=site_currency_symbol?></span><b><?=$value['price']?></b></h6>
-				<p><?=$lang['plans']['month']?></p>
+				<h5>Starter</h5>
+				<h6><span>$</span><b>2.00</b></h6>
+				<p>/per survey</p>
 
 				<form action="<?php echo PAYPAL_URL; ?>" method="post">
-					<input type="hidden" name="business" value="<?=PAYPAL_ID?>">
+					<input type="hidden" name="business" value="<?= PAYPAL_ID ?>">
 					<input type="hidden" name="cmd" value="_xclick-subscriptions">
 
-					<input type="hidden" name="item_name" value="<?=$value['plan']?>">
-					<input type="hidden" name="item_number" value="Plan#<?=$value['id']?>">
-					<input type="hidden" name="currency_code" value="<?=PAYPAL_CURRENCY?>">
-					<input type="hidden" name="a3" value="<?=$value['price']?>">
+					<input type="hidden" name="item_name" value="Starter">
+					<input type="hidden" name="item_number" value="Plan#1">
+					<input type="hidden" name="currency_code" value="USD">
+					<input type="hidden" name="a3" value="2.00">
 					<input type="hidden" name="p3" value="1">
 					<input type="hidden" name="t3" value="M">
-    			<input type="hidden" name="custom" value="<?=us_id?>">
+					<input type="hidden" name="custom" value="2">
 
-					<input type="hidden" name="return" value="<?=PAYPAL_RETURN_URL?>">
-					<input type="hidden" name="cancel_return" value="<?=PAYPAL_CANCEL_URL?>">
+					<input type="hidden" name="return" value="<?= PAYPAL_RETURN_URL ?>">
+					<input type="hidden" name="cancel_return" value="<?= PAYPAL_CANCEL_URL ?>">
 
-					<?php if (us_level): ?>
-						<button <?=((int)($value['price'])==0?'disabled':'')?> type="sublit" name="submit" class="fancy-button bg-gradient<?=($value['id']==2?'5' :'5')?>">
-							<span><?=$lang['plans']['btn']?> <i class="fas fa-heart"></i></span>
+					<?php if (us_level) : ?>
+						<button type="submit" name="submit" class="fancy-button bg-gradient5">
+							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
 						</button>
-					<?php else: ?>
-						<button type="button" href="#loginModal" data-toggle="modal" class="fancy-button bg-gradient<?=($value['id']==2?'5' :'5')?>">
-							<span><?=$lang['plans']['btn']?> <i class="fas fa-heart"></i></span>
+					<?php else : ?>
+						<button type="button" href="#loginModal" data-toggle="modal" class="fancy-button bg-gradient5">
+							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
 						</button>
 					<?php endif; ?>
 
 				</form>
 				<ul>
-					<?php
-					$value['specifics'] = [
-						[$value['desc1'], 'green', '1'],
-						[$value['desc2'], '', '1'],
-						[$value['desc3'], '', '1'],
-						[$value['desc4'], '', $value['surveys_rapport']],
-						[$value['desc5'], '', $value['survey_design']],
-						[$value['desc6'], '', $value['surveys_export']],
-						[$value['desc7'], '', $value['surveys_iframe']],
-						[$value['desc8'], '', $value['support']],
-						[$value['desc9'], '', $value['show_ads']]
-					];
-					foreach ($value['specifics'] as $v):
-						if ($v[0]):
-						?>
-						<li<?=($v[1] == 'green' ?' class="alert-success"' :'')?>>
-							<span><i class="fas fa-<?=($v[2]=='1'?'check' :'times')?>"></i></span> <?=$v[0]?>
-						</li>
-						<?php
-						endif;
-					endforeach;
-					?>
+					<li class="alert-success">
+						<span><i class="fas fa-check"></i></span> Profile to track your leads
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> Fast turnaround solutions
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> Quickly evaluate potential tenants financial qualifications
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> Email support
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> Specific Survey Design
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> Export Responses
+					</li>
 				</ul>
 			</div>
 		</div>
-		<?php
-	endwhile;
-	?>
-</div>
+		<div class="col">
+			<div class="pt-plan">
+				<h5>Preferred</h5>
+				<h6><span>$</span><b>30.00</b></h6>
+				<p>/per month</p>
+
+				<form action="<?php echo PAYPAL_URL; ?>" method="post">
+					<input type="hidden" name="business" value="<?= PAYPAL_ID ?>">
+					<input type="hidden" name="cmd" value="_xclick-subscriptions">
+
+					<input type="hidden" name="item_name" value="Preferred">
+					<input type="hidden" name="item_number" value="Plan#2">
+					<input type="hidden" name="currency_code" value="USD">
+					<input type="hidden" name="a3" value="30.00">
+					<input type="hidden" name="p3" value="1">
+					<input type="hidden" name="t3" value="M">
+					<input type="hidden" name="custom" value="2">
+
+					<input type="hidden" name="return" value="<?= PAYPAL_RETURN_URL ?>">
+					<input type="hidden" name="cancel_return" value="<?= PAYPAL_CANCEL_URL ?>">
+
+					<?php if (us_level) : ?>
+						<button type="submit" name="submit" class="fancy-button bg-gradient5">
+							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
+						</button>
+					<?php else : ?>
+						<button type="button" href="#loginModal" data-toggle="modal" class="fancy-button bg-gradient5">
+							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
+						</button>
+					<?php endif; ?>
+
+				</form>
+				<ul>
+					<li class="alert-success">
+						<span><i class="fas fa-check"></i></span> All starter features
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> 24/7 Email support
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> customizable themes to show your survey 
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> Logo add customization
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> Specific Survey Design
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> Unlimited submissions
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> More scalable infrastructure
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col">
+			<div class="pt-plan">
+				<h5>Firm (10-50 realtors)</h5>
+				<h6><span>$</span><b>2500.00</b></h6>
+				<p>/per month</p>
+
+				<form action="<?php echo PAYPAL_URL; ?>" method="post">
+					<input type="hidden" name="business" value="<?= PAYPAL_ID ?>">
+					<input type="hidden" name="cmd" value="_xclick-subscriptions">
+
+					<input type="hidden" name="item_name" value="Firm (10-50 realtors)">
+					<input type="hidden" name="item_number" value="Plan#3">
+					<input type="hidden" name="currency_code" value="USD">
+					<input type="hidden" name="a3" value="2500.00">
+					<input type="hidden" name="p3" value="1">
+					<input type="hidden" name="t3" value="M">
+					<input type="hidden" name="custom" value="2">
+
+					<input type="hidden" name="return" value="<?= PAYPAL_RETURN_URL ?>">
+					<input type="hidden" name="cancel_return" value="<?= PAYPAL_CANCEL_URL ?>">
+
+					<?php if (us_level) : ?>
+						<button type="submit" name="submit" class="fancy-button bg-gradient5">
+							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
+						</button>
+					<?php else : ?>
+						<button type="button" href="#loginModal" data-toggle="modal" class="fancy-button bg-gradient5">
+							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
+						</button>
+					<?php endif; ?>
+
+				</form>
+				<ul>
+					<li class="alert-success">
+						<span><i class="fas fa-check"></i></span> All pro and starter features
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> White label solutions and customization
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> Custom Survey Design
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> Export Responses
+					</li>
+					<li>
+						<span><i class="fas fa-check"></i></span> Priority support
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
 
+
+
+</div>
 
 
 <!-- --------------------------------------FOOTER----------------------------------------------------- -->
