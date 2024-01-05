@@ -8,14 +8,18 @@ $s_title = ($lang['mysurvys']['title']);
 <div class="pt-title">
 	<h3><?=$s_title?></h3>
 	<div class="pt-options">
+		<?php if($us_plan != 'all'): ?>
 		<a href="<?=path?>/index.php?pg=editor" class="pt-btn"><?=$lang['mysurvys']['create']?></a>
+		<?php endif; ?>
 	</div>
 </div>
 
 <table class="table table-responsive">
 	<thead>
 		<tr>
+			<?php if(fh_access("pfp")) : ?>
 			<th scope="col"><?=('')?></th>
+			<?php endif; ?>
 			<th scope="col"><?=$lang['mysurvys']['name']?></th>
 			<th scope="col"><?=$lang['mysurvys']['views']?></th>
 			<th scope="col"><?=$lang['mysurvys']['responses']?></th>
@@ -38,13 +42,13 @@ $s_title = ($lang['mysurvys']['title']);
 			$userphoto = db_get("users", "photo", $rs['author']);
 		?>
 		<tr>
-			<?php ?>
+			<?php if(fh_access("pfp")) : ?>
 			<th scope="row" class="pt-thumbth">
 				<div class="pt-thumb">
 					<img src="<?=($userphoto?$userphoto:nophoto)?>" title="<?=fh_user($rs['author'], false)?>" onerror="this.src='<?=nophoto?>'" />
 				</div>
 			</th>
-			<?php ?>
+			<?php endif ?>
 			<td><a href="<?=path?>/index.php?pg=survey&id=<?=$rs['id']?>&t=<?=fh_seoURL($rs['title'])?>"><?=$rs['title']?></a></td>
 			<td><?=$rs['views']?></td>
 			<td><?=db_rows("responses WHERE survey = '{$rs['id']}' GROUP BY token_id", "token_id")?></td>

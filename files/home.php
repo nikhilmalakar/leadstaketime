@@ -396,9 +396,9 @@
 							<h6><span>$</span><b>30.00</b></h6>
 							<p>/per month</p>
 
-							<form action="<?php echo PAYPAL_URL; ?>" method="post">
-								<input type="hidden" name="business" value="<?= PAYPAL_ID ?>">
-								<input type="hidden" name="cmd" value="_xclick-subscriptions">
+				<form action="./files/create-checkout-session_preferred.php" method="post">
+					<input type="hidden" name="business" value="<?= PAYPAL_ID ?>">
+					<input type="hidden" name="cmd" value="_xclick-subscriptions">
 
 								<input type="hidden" name="item_name" value="Preferred">
 								<input type="hidden" name="item_number" value="Plan#2">
@@ -459,9 +459,9 @@
 							<h6><span>$</span><b>2500.00</b></h6>
 							<p>/per month</p>
 
-							<form action="<?php echo PAYPAL_URL; ?>" method="post">
-								<input type="hidden" name="business" value="<?= PAYPAL_ID ?>">
-								<input type="hidden" name="cmd" value="_xclick-subscriptions">
+				<form action="./files/create-checkout-session_firms.php" method="post">
+					<input type="hidden" name="business" value="<?= PAYPAL_ID ?>">
+					<input type="hidden" name="cmd" value="_xclick-subscriptions">
 
 								<input type="hidden" name="item_name" value="Firm (10-50 realtors)">
 								<input type="hidden" name="item_number" value="Plan#3">
