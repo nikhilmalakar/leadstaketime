@@ -39,11 +39,12 @@ if (!site_plans) {
 					<input type="hidden" name="return" value="<?= PAYPAL_RETURN_URL ?>">
 					<input type="hidden" name="cancel_return" value="<?= PAYPAL_CANCEL_URL ?>">
 
-					<?php if (us_level) : ?>
+					<?php if (us_level & us_level != 6) : ?>
 						<button type="submit" name="submit" class="fancy-button bg-gradient5">
 							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
-						</button>
-					<?php else : ?>
+						</button>		
+					<?php endif; ?>
+					<?php if(!us_level && us_level != 6): ?>
 						<button type="button" href="#loginModal" data-toggle="modal" class="fancy-button bg-gradient5">
 							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
 						</button>
@@ -93,11 +94,12 @@ if (!site_plans) {
 					<input type="hidden" name="return" value="<?= PAYPAL_RETURN_URL ?>">
 					<input type="hidden" name="cancel_return" value="<?= PAYPAL_CANCEL_URL ?>">
 
-					<?php if (us_level) : ?>
+					<?php if (us_level & us_level != 6) : ?>
 						<button type="submit" name="submit" class="fancy-button bg-gradient5">
 							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
 						</button>
-					<?php else : ?>
+					<?php endif; ?>
+					<?php if(!us_level && us_level != 6): ?>
 						<button type="button" href="#loginModal" data-toggle="modal" class="fancy-button bg-gradient5">
 							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
 						</button>
@@ -150,11 +152,12 @@ if (!site_plans) {
 					<input type="hidden" name="return" value="<?= PAYPAL_RETURN_URL ?>">
 					<input type="hidden" name="cancel_return" value="<?= PAYPAL_CANCEL_URL ?>">
 
-					<?php if (us_level) : ?>
+					<?php if (us_level & us_level != 6) : ?>
 						<button type="submit" name="submit" class="fancy-button bg-gradient5">
 							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
 						</button>
-					<?php else : ?>
+					<?php endif; ?>
+					<?php if(!us_level && us_level != 6): ?>
 						<button type="button" href="#loginModal" data-toggle="modal" class="fancy-button bg-gradient5">
 							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
 						</button>

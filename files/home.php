@@ -233,13 +233,15 @@
 	</div>
 
 <!-- --------------------------------------PLANS----------------------------------------------------- -->
+
 <div class="pt-title">
 	<h3><span><i class="fas fa-dollar-sign"></i></span></h3>
 	<h3><?= $lang['plans']['title'] ?></h3>
 	<p><?= $lang['plans']['desc'] ?></p>
 </div>
 
-<div class="pt-plans" style="width: 90%; margin:auto">
+
+<div class="pt-plans">
 	<div class="row">
 		<div class="col">
 			<div class="pt-plan">
@@ -262,11 +264,12 @@
 					<input type="hidden" name="return" value="<?= PAYPAL_RETURN_URL ?>">
 					<input type="hidden" name="cancel_return" value="<?= PAYPAL_CANCEL_URL ?>">
 
-					<?php if (us_level) : ?>
+					<?php if (us_level & us_level != 6) : ?>
 						<button type="submit" name="submit" class="fancy-button bg-gradient5">
 							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
-						</button>
-					<?php else : ?>
+						</button>		
+					<?php endif; ?>
+					<?php if(!us_level && us_level != 6): ?>
 						<button type="button" href="#loginModal" data-toggle="modal" class="fancy-button bg-gradient5">
 							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
 						</button>
@@ -316,11 +319,12 @@
 					<input type="hidden" name="return" value="<?= PAYPAL_RETURN_URL ?>">
 					<input type="hidden" name="cancel_return" value="<?= PAYPAL_CANCEL_URL ?>">
 
-					<?php if (us_level) : ?>
+					<?php if (us_level & us_level != 6) : ?>
 						<button type="submit" name="submit" class="fancy-button bg-gradient5">
 							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
 						</button>
-					<?php else : ?>
+					<?php endif; ?>
+					<?php if(!us_level && us_level != 6): ?>
 						<button type="button" href="#loginModal" data-toggle="modal" class="fancy-button bg-gradient5">
 							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
 						</button>
@@ -373,11 +377,12 @@
 					<input type="hidden" name="return" value="<?= PAYPAL_RETURN_URL ?>">
 					<input type="hidden" name="cancel_return" value="<?= PAYPAL_CANCEL_URL ?>">
 
-					<?php if (us_level) : ?>
+					<?php if (us_level & us_level != 6) : ?>
 						<button type="submit" name="submit" class="fancy-button bg-gradient5">
 							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
 						</button>
-					<?php else : ?>
+					<?php endif; ?>
+					<?php if(!us_level && us_level != 6): ?>
 						<button type="button" href="#loginModal" data-toggle="modal" class="fancy-button bg-gradient5">
 							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
 						</button>
@@ -409,6 +414,7 @@
 
 
 </div>
+
 
 
 <!-- --------------------------------------FOOTER----------------------------------------------------- -->
