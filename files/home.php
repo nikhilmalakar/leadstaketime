@@ -79,7 +79,7 @@
 
 	<link rel="stylesheet" href="<?= path ?>/assets/css/popupConsent.css">
 
-	<link rel="stylesheet" href="<?= path ?>/assets/css/style.css">x
+	<link rel="stylesheet" href="<?= path ?>/assets/css/style.css">
 	<link rel="stylesheet" href="<?= path ?>/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?= path ?>/assets/css/popupConsent.css">
 	<link rel="stylesheet" href="<?= path ?>/assets/css/home.css">

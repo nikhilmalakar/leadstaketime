@@ -33,7 +33,7 @@ if (us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-tw
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-white m-0" style="">
 		<a href="#" class="navbar-brand">
-			<img src="./assets/img/leadstaketime_logo.png" height="56" alt="CoolBrand">
+			<img src="<?= path ?>/assets/img/leadstaketime_logo.png"  height="56" alt="Leads Take Time">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
 			aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@ if (us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-tw
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 				<li class="nav-item">
-					<a class="" href="./">Home <span class="sr-only">(current)</span></a>
+					<a class="" href="<?= path ?>">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<?php if (site_landing && us_level != 6): ?>
 					<li class="nav-item">
@@ -75,7 +75,7 @@ if (us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-tw
 					</div>
 				<?php elseif (us_level): ?>
 					<div class="nav-action-button">
-						<a href="./dashboard.php" style="color:white !important;" class="nav-item">Dashboard</a>
+						<a href="./mysurveys" style="color:white !important;" class="nav-item">Dashboard</a>
 					</div>
 				<?php endif; ?>
 
@@ -124,7 +124,9 @@ if (us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-tw
 												</span>
 											</a>
 											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#" class="pt-logout"><i class="fas fa-power-off"></i>
+											<!-- <li><a href="#" class="pt-logout"><i class="fas fa-power-off"></i> <?=$lang['menu']['logout']?></a></li> -->
+						
+											<a class="dropdown-item pt-logout" href="#" class=""><i class="fas fa-power-off"></i>
 												<?= $lang['menu']['logout'] ?>
 											</a>
 										</div>

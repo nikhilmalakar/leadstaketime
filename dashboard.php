@@ -43,7 +43,7 @@ if(us_level == 6):
 	</div>
 	<div class="pt-admin-body">
 		<div class="pt-welcome">
-			<h3><?=$lang['dashboard']['hello']?> <?=us_username?>!</h3>
+			<h3 style="text-transform: capitalize;"><?=$lang['dashboard']['hello']?> <?=us_username?>!</h3>
 			<p><?=$lang['dashboard']['welcome']?></p>
 			<span><i class="fas fa-chart-line"></i></span>
 		</div>
