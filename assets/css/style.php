@@ -171,15 +171,8 @@ a, a:hover, a:focus,
 
 
 .bg-gradient5 span, .bg-gradient5:before {
-	background: <?php echo $btn5_1 ?>;
-  background: -moz-linear-gradient(left, <?php echo $btn5_1 ?> 0%, <?php echo $btn5_2 ?> 80%, <?php echo $btn5_2 ?> 100%);
-  background: -webkit-linear-gradient(left, <?php echo $btn5_1 ?> 0%, <?php echo $btn5_2 ?> 80%, <?php echo $btn5_2 ?> 100%);
-  background: linear-gradient(to right, <?php echo $btn5_1 ?> 0%, <?php echo $btn5_2 ?> 80%, <?php echo $btn5_2 ?> 100%);
+	background: #3dbb3d;
 }
-.pt-plans .col:nth-of-type(3) .pt-plan .fancy-button span {
-	color: <?php echo $btn5_2 ?>;
-}
-
 
 
 #registrationModal input, #loginModal input,

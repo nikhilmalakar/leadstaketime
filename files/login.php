@@ -4,7 +4,7 @@
 	<?php if(site_register): ?>
 	<div class="pt-login pt-signup">
 		<form id="pt-send-signup">
-			<div class="pt-logo"><img src="<?=path?>/<?=site_logo?>" onerror="this.src='<?=path?>/assets/img/logo3.png'" /></div>
+			<div class="pt-logo"><img src="./assets/img/leadstaketime_logo.png" onerror="this.src='<?=path?>/assets/img/leadstaketime_logo.png'" /></div>
 			<div class="pt-login-form">
 					<div class="pt-form-i">
 						<span class="pt-icon"><i class="far fa-user"></i></span>
@@ -46,16 +46,30 @@
 	</div>
 	<?php endif; ?>
 
-<div class="pt-login pt-signin">
+<style>
+	.pt-logo img{
+		width: auto;
+		height: 100px;
+	}
+	.pt-login .pt-logo{
+		display: flex !important;
+		justify-content: center	;
+	}
+	.pt-login-form{
+		box-shadow: 0 0 9px 3px #d7d7d7;
+	}
+</style>
+
+<div class="pt-login pt-signin" >
 	<form id="pt-send-signin">
-		<div class="pt-logo"><img src="<?=path?>/<?=site_logo?>" onerror="this.src='<?=path?>/assets/img/logo3.png'" /></div>
+		<div class="pt-logo" ><img src="./assets/img/leadstaketime_logo.png" onerror="this.src='<?=path?>/assets/img/leadstaketime_logo.png'" /></div>
 		<div class="pt-login-form">
-			<div class="pt-form-i">
-				<span class="pt-icon"><i class="far fa-user"></i></span>
+			<div class="pt-form-i" >
+				<span class="pt-icon" style="color:#3dbb3d;"><i class="far fa-user"></i></span>
 				<input type="text" name="sign_name" placeholder="<?=$lang['login']['username']?>">
 			</div>
 			<div class="pt-form-i">
-				<span class="pt-icon"><i class="fas fa-key"></i></span>
+				<span class="pt-icon" style="color:#3dbb3d;"><i class="fas fa-key"></i></span>
 				<input type="password" name="sign_pass" placeholder="<?=$lang['login']['password']?>">
 			</div>
 			<div class="pt-login-footer">
@@ -88,7 +102,7 @@
 		</div>
 		<?php if(site_register): ?>
 		<div class="pt-footer">
-			<?=$lang['login']['footer']?> <a href="#" class="clickme"><?=$lang['login']['footer_l']?></a>
+			<?=$lang['login']['footer']?> <a href="#"  class="clickme"><?=$lang['login']['footer_l']?></a>
 		</div>
 		<?php endif; ?>
 	</form>

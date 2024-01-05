@@ -1,21 +1,9 @@
 <?php
 # -------------------------------------------------#
 #¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤#
-#	¤                                            ¤   #
-#	¤         Puerto Premium Survey 1.0          ¤   #
 #	¤--------------------------------------------¤   #
-#	¤              By Khalid Puerto              ¤   #
+#	¤              By XARCODE (FIVERR.COM)       ¤   #
 #	¤--------------------------------------------¤   #
-#	¤                                            ¤   #
-#	¤  Facebook : fb.com/prof.puertokhalid       ¤   #
-#	¤  Instagram : instagram.com/khalidpuerto    ¤   #
-#	¤  Site : http://www.puertokhalid.com        ¤   #
-#	¤  Whatsapp: +212 654 211 360                ¤   #
-#	¤                                            ¤   #
-#	¤--------------------------------------------¤   #
-#	¤                                            ¤   #
-#	¤  Last Update: 10/02/2022                   ¤   #
-#	¤                                            ¤   #
 #¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤#
 # -------------------------------------------------#
 
@@ -50,7 +38,7 @@ if(basename($_SERVER['PHP_SELF'], '.php') != "index"){
 	<meta property="twitter:image" content="<?=site_url?>">
 
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="<?=path?>/<?=site_favicon?>" type="image/x-icon" />
+	<link rel="shortcut icon" href="./assets/img/leadstaketime_logo.png" type="image/x-icon" />
 
 	<!-- Google Fonts -->
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,900%7CGentium+Basic:400italic&subset=latin,latin">
