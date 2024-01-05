@@ -83,7 +83,6 @@ function db_update_global($var, $val){
 function db_login_details(){
 	global $db;
 	$log_session = ( isset($_SESSION['login']) ? (int)$_SESSION['login'] : ( isset($_COOKIE['login']) ? (int)$_COOKIE['login'] : 0 ) );
-
   if( isset($log_session) && $log_session != 0 ){
    $sql = $db->query( "SELECT * FROM ".prefix."users WHERE id = '{$log_session}'" ) or die($db->error);
    $rs  = $sql->fetch_assoc();
@@ -185,7 +184,7 @@ function fh_access($type) {
 	if(us_level == 6) $access = true;
 	else {
 		if($type == "survey") $access = ( db_rows("survies WHERE FROM_UNIXTIME(date,'%m-%Y') = '".date('m-Y', time())."' && author = '".us_id."'") >= surveys_month ? false : true);
-
+		elseif($type == "pfp") $access = us_level <= 1 ? false : true;
 		elseif($type == "design" && !survey_design ) $access = false;
 		elseif($type == "rapport" && !surveys_rapport ) $access = false;
 		elseif($type == "export" && !surveys_export ) $access = false;

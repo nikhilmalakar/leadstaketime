@@ -22,7 +22,7 @@
 					<small><?=str_replace(["{link_privacy}", "{link_terms}"], ['<a href="'.privacy_link.'" target="_blank">'.$lang['home']['privacy'].'</a>', '<a href="'.terms_link.'" target="_blank">'.$lang['home']['terms'].'</a>'],$lang['home']['accepting'])?></small>
 
 				<div class="pt-login-footer">
-						<button type="submit" class="pt-btn"><?=$lang['signup']['button']?></button>
+						<button type="submit" class="pt-btn">Choose a Plan</button>
 				</div>
 				<?php if(site_register && (login_facebook || login_twitter || login_google)): ?>
 				<div class="pt-social-login">
