@@ -78,7 +78,7 @@ if (!site_plans) {
 				<h6><span>$</span><b>30.00</b></h6>
 				<p>/per month</p>
 
-				<form action="<?php echo PAYPAL_URL; ?>" method="post">
+				<form action="./files/create-checkout-session_preferred.php" method="post">
 					<input type="hidden" name="business" value="<?= PAYPAL_ID ?>">
 					<input type="hidden" name="cmd" value="_xclick-subscriptions">
 
@@ -135,7 +135,7 @@ if (!site_plans) {
 				<h6><span>$</span><b>2500.00</b></h6>
 				<p>/per month</p>
 
-				<form action="<?php echo PAYPAL_URL; ?>" method="post">
+				<form action="./files/create-checkout-session_firms.php" method="post">
 					<input type="hidden" name="business" value="<?= PAYPAL_ID ?>">
 					<input type="hidden" name="cmd" value="_xclick-subscriptions">
 
