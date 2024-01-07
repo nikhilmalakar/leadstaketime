@@ -4,19 +4,16 @@ require 'stripe-php-master/init.php';
 
 $stripe = new \Stripe\StripeClient('sk_test_51OUNY5SBPdt3AoFTq8muknD9SPz0UvqagCzvaLiR0aDG6cAMRM8DTAPeuGmVia1AJyplX888AsZHOQ9HJC2ewtX300If3bdncx');
 
+$priceId = 'price_1OVomYSBPdt3AoFTQzEukZqd';
+
 $checkout_session = $stripe->checkout->sessions->create([
   'line_items' => [[
-    'price_data' => [
-      'currency' => 'usd',
-      'product_data' => [
-        'name' => 'Preferred',
-      ],
-      'unit_amount' => 3000,
-    ],
+    'price' => $priceId,
+    // For metered billing, do not pass quantity
     'quantity' => 1,
   ]],
-  'mode' => 'payment',
-  'success_url' => 'http://localhost/leadstaketime/files/success_firms.php',
+  'mode' => 'subscription',
+  'success_url' => 'http://localhost/leadstaketime/index.php',
   'cancel_url' => 'http://localhost/cancel',
 ]);
 

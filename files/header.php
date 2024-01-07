@@ -55,14 +55,14 @@ if (us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-tw
 					</li>
 				<?php endif; ?>
 				<li class="nav-item">
-					<a class="" href="#">Contact Us</a>
+					<a class="" href="<?= path ?>/p2/">Contact Us</a>
 				</li>
 			</ul>
 
 				<div class="navbar-nav ms-auto">
 					<?php if (us_level != 6): ?>
 						<div class="nav-action-button">
-							<a href="./plans" class="nav-item" style="color:white !important;"><i class="far fa-gem"
+							<a href="<?= path ?>/index.php?pg=plans" class="nav-item" style="color:white !important;"><i class="far fa-gem"
 									style="padding-right:10px !important;"></i>Pricing</a>
 						</div>
 					<?php endif; ?>
@@ -77,7 +77,7 @@ if (us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-tw
 						</div>
 					<?php elseif (us_level): ?>
 						<div class="nav-action-button">
-							<a href="./mysurveys" style="color:white !important;" class="nav-item">Dashboard</a>
+							<a href="<?= path ?>/index.php?pg=mysurveys" style="color:white !important;" class="nav-item">Dashboard</a>
 						</div>
 					<?php endif; ?>
 

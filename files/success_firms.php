@@ -2,7 +2,7 @@
 include __DIR__."/../configs.php";
 
 $log_session = ( isset($_SESSION['login']) ? (int)$_SESSION['login'] : ( isset($_COOKIE['login']) ? (int)$_COOKIE['login'] : 0 ) );
-$query = "UPDATE ".prefix."users SET plan = '4' WHERE id = '{$log_session}'";
+$query = "UPDATE ".prefix."users SET plan = '3' WHERE id = '{$log_session}'";
 // echo $query;
 // echo $_COOKIE['login'];
 // echo us_id; 

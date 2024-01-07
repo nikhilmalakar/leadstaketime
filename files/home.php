@@ -126,10 +126,10 @@
 						<a class="" href="./">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="" href="#">About Us</a>
+						<a class="" href="<?= path ?>/p1/about">About Us</a>
 					</li>
 					<li class="nav-item">
-						<a class="" href="#">Contact Us</a>
+						<a class="" href="<?= path ?>/p2/">Contact Us</a>
 					</li>
 				</ul>
 				<div class="navbar-nav ms-auto">
@@ -548,13 +548,13 @@
 	</div>
 
 	<div class="container">
-		<footer class="py-3 my-4">
+		<footer class="py-3 ">
 			<ul class="nav justify-content-center border-bottom pb-3 mb-3">
-				<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-				<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-				<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-				<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About Us</a></li>
-				<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact Us</a></li>
+				<li class="nav-item"><a href="<?= path ?>/index.php" class="nav-link px-2 text-muted">Home</a></li>
+				<!-- <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li> -->
+				<li class="nav-item"><a href="<?= path ?>/index.php?pg=plans" class="nav-link px-2 text-muted">Pricing</a></li>
+				<li class="nav-item"><a href="<?= path ?>/p1/about" class="nav-link px-2 text-muted">About Us</a></li>
+				<li class="nav-item"><a href="<?= path ?>/p2/" class="nav-link px-2 text-muted">Contact Us</a></li>
 			</ul>
 			<p class="text-center text-muted">© Leads Take Time | All Rights Reserved</p>
 		</footer>

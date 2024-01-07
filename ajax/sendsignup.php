@@ -66,7 +66,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 				'email'      => "{$reg_email}",
 				'password'   => sc_pass($reg_pass),
 				'date'       => time(),
-				'level'      => "1"
+				'level'      => "1",
+				'plan'       => "1"
 			];
 
 			db_insert("users", $data);

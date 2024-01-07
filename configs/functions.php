@@ -184,7 +184,7 @@ function fh_access($type) {
 	if(us_level == 6) $access = true;
 	else {
 		if($type == "survey") $access = ( db_rows("survies WHERE FROM_UNIXTIME(date,'%m-%Y') = '".date('m-Y', time())."' && author = '".us_id."'") >= surveys_month ? false : true);
-		elseif($type == "pfp") $access = us_level <= 1 ? false : true;
+		elseif($type == "pfp") $access = us_plan <= 1 ? false : true;
 		elseif($type == "design" && !survey_design ) $access = false;
 		elseif($type == "rapport" && !surveys_rapport ) $access = false;
 		elseif($type == "export" && !surveys_export ) $access = false;
