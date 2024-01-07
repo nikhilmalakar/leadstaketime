@@ -33,7 +33,7 @@ if($rs['author'] == us_id || us_level == 6):
 
 <div class="pt-title">
 	<div class="pt-options">
-		<a href="<?=path?>/index.php?pg=report&id=<?=$rs['id']?>" class="pt-btn"><i class="fas fa-chart-pie"></i> <?=$lang['report']['btn_1']?></a>
+		<a href="<?=path?>/index.php?pg=report&id=<?=$rs['id']?>" class=""><i class="fas fa-chart-pie"></i> <?=$lang['report']['btn_1']?></a>
 		<a href="<?=path?>/index.php?pg=editor&id=<?=$rs['id']?>" class="pt-btn btn-red"><i class="fas fa-edit"></i> <?=$lang['report']['btn2']?></a>
 	</div>
 </div>
@@ -47,7 +47,7 @@ if($rs['author'] == us_id || us_level == 6):
 			while($q_rs = $q_sql->fetch_assoc()):
 				if($q_rs['type']!="text"):
 			?>
-				<th scope="col"><span class="spover"><?=$q_rs['title']?></span></th>
+				<th scope="col"><span class="spover" style="color:black;"><h6>Survey Title : <?=$q_rs['title']?></h6></span></th>
 			<?php
 				endif;
 			endwhile;
@@ -56,17 +56,18 @@ if($rs['author'] == us_id || us_level == 6):
 	</thead>
 	<tbody>
 		<?php
-		$sql = $db->query("SELECT MAX(id) as rid, token_id FROM ".prefix."responses WHERE survey = '{$id}' GROUP BY token_id ORDER BY MAX(id) DESC LIMIT {$startpoint} , {$limit}") or die ($db->error);
+		$sql = $db->query("SELECT MAX(id) as rid,viewed, token_id FROM ".prefix."responses WHERE survey = '{$id}' GROUP BY token_id ORDER BY MAX(id) DESC LIMIT {$startpoint} , {$limit}") or die ($db->error);
 		if($sql->num_rows):
 		while($rs = $sql->fetch_assoc()):
 		?>
-		<tr class="pt-response" data-response="<?=$rs['rid']?>">
+		<tr style="<?php if(us_level == 1 && $rs['viewed'] ==0) : ?> pointer-events: none;user-select: none;<?php endif;?> border-bottom:solid #dbdbdb 3px!important">
 			<?php
 			$q_sql = $db->query("SELECT * FROM ".prefix."questions WHERE survey = '{$id}' ORDER BY step ASC,sort ASC LIMIT 12") or die ($db->error);
 			while($q_rs = $q_sql->fetch_assoc()):
 				if($q_rs['type']!="text"):
 			?>
-				<td scope="col"><span class="spover">
+				<td scope="col" class="pt-response" data-response="<?=$rs['rid']?>">
+					<span class="spover"  style="<?php if(us_level == 1 && $rs['viewed'] ==0) : ?> filter: blur(2px);pointer-events: none;user-select: none;<?php endif;?>">
 					<?php
 					$ans_id = db_get("responses", "answer", $q_rs['id'], "question", "&& token_id = '{$rs['token_id']}'");
 					$ans_tp = $q_rs['type'];
@@ -105,12 +106,25 @@ if($rs['author'] == us_id || us_level == 6):
 							echo "{$ans_vl}";
 						}
 					 ?>
-				</span></td>
+				</span>
+			</td>
+			<td>
+				<?php if($rs['viewed'] ==0 && us_level ==1) : ?> 
+					<button class="pt-btn" style="pointer-events:auto;" onclick="hello()">Pay To View</button>
+				<?php endif;?>
+				<script>
+					function hello() {
+						event.preventDefault();
+						window.location.href = "https://www.google.com";
+					}
+				</script>
+			</td>
+
 			<?php
 				endif;
 			endwhile;
 			?>
-		</tr>
+			</tr>
 		<?php
 		endwhile;
 		echo (db_rows("responses WHERE survey = '{$id}' GROUP BY token_id", "MAX(id)") > $limit ? '<tr><td colspan="12">'.fh_pagination("responses WHERE survey = '{$id}' GROUP BY token_id",$limit, path."/index.php?pg=responses&id={$id}&", 1, true).'</td></tr>' : '');

@@ -136,9 +136,13 @@
 					<div class="nav-action-button">
 						<a href="./plans" class="nav-item">Pricing</a>
 					</div>
-					<?php if (us_level != 6): ?>
+					<?php if (!us_level): ?>
 						<div class="nav-action-button">
-							<a href="./mysurveys" class="nav-item">Get Started</a>
+							<a href="./plans" class="nav-item">Get Started</a>
+						</div>
+					<?php elseif(us_level != 6): ?>
+						<div class = "nav-action-button">
+							<a href="./mysurveys" class="nav-item">Dahsboard</a>
 						</div>
 					<?php else: ?>
 						<div class="nav-action-button">

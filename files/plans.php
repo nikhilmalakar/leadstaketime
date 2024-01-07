@@ -40,9 +40,15 @@ if (!site_plans) {
 					<input type="hidden" name="cancel_return" value="<?= PAYPAL_CANCEL_URL ?>">
 
 					<?php if (us_level & us_level != 6) : ?>
+						<?php if(us_level == 1): ?>
+							<button type="submit" name="submit" class="fancy-button bg-gradient5" onclick="redirectuser()" >
+								<span>Default Plan</span>
+							</button>
+						<?php else: ?>
 						<button type="submit" name="submit" class="fancy-button bg-gradient5">
 							<span><?= $lang['plans']['btn'] ?> <i class="fas fa-heart"></i></span>
 						</button>		
+						<?php endif; ?>
 					<?php endif; ?>
 					<?php if(!us_level && us_level != 6): ?>
 						<button type="button" href="#loginModal" data-toggle="modal" class="fancy-button bg-gradient5">
@@ -51,6 +57,15 @@ if (!site_plans) {
 					<?php endif; ?>
 
 				</form>
+				<script>
+					function redirectuser() {
+						event.preventDefault();
+						window.location.href = "./mysurveys";
+					}
+					// function redirectdashboard() {
+					// 	window.location.href = "./dashboard";
+					// }
+				</script>
 				<ul>
 					<li class="alert-success">
 						<span><i class="fas fa-check"></i></span> Profile to track your leads

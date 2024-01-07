@@ -26,7 +26,7 @@ if(us_level == 6):
 <link rel="stylesheet" href="<?=path?>/assets/css/scroll.css">
 <div class="pt-wrapper">
 	<div class="pt-admin-nav">
-		<div class="pt-logo"><i class="fas fa-fire"></i></div>
+		<div class="pt-logo"><i class="fas fa-tree"></i></div>
 		<!-- <div class="pt-logo"><img src="<?=path?>/<?=site_favicon?>" /></div> -->
 		<ul>
 			<li><a href="<?=path?>"><i class="fas fa-home"></i><b><?=$lang['menu']['home']?></b></a></li>
@@ -34,11 +34,7 @@ if(us_level == 6):
 			<li<?=($pg=="users"?' class="pt-active"':'')?>><a href="<?=path?>/dashboard.php?pg=users"><i class="fas fa-users"></i><b><?=$lang['dashboard']['users']?></b></a></li>
 			<li<?=($pg=="surveys"?' class="pt-active"':'')?>><a href="<?=path?>/dashboard.php?pg=surveys"><i class="fas fa-poll"></i><b><?=$lang['dashboard']['surveys']?></b></a></li>
 			<li<?=($pg=="plans"?' class="pt-active"':'')?>><a href="<?=path?>/dashboard.php?pg=plans"><i class="fas fa-puzzle-piece"></i><b><?=$lang['menu']['plans']?></b></a></li>
-			<li<?=($pg=="payments"?' class="pt-active"':'')?>><a href="<?=path?>/dashboard.php?pg=payments"><i class="fas fa-dollar-sign"></i><b><?=$lang['dashboard']['p_title']?></b></a></li>
-			<li<?=($pg=="pages"?' class="pt-active"':'')?>><a href="<?=path?>/dashboard.php?pg=pages"><i class="fas fa-copy"></i><b><?=$lang['dashboard']['pg_title']?></b></a></li>
-			<li<?=($pg=="setting"?' class="pt-active"':'')?>><a href="<?=path?>/dashboard.php?pg=setting"><i class="fas fa-cogs"></i><b><?=$lang['dashboard']['settings']?></b></a></li>
-			<li<?=($pg=="languages"?' class="pt-active"':'')?>><a href="<?=path?>/dashboard.php?pg=languages"><i class="fas fa-language"></i><b><?=$lang['dashboard']['languages']?></b></a></li>
-			<li><a href="#" class="pt-logout"><i class="fas fa-power-off"></i><b><?=$lang['menu']['logout']?></b></a></li>
+				<li><a href="#" class="pt-logout"><i class="fas fa-power-off"></i><b><?=$lang['menu']['logout']?></b></a></li>
 		</ul>
 	</div>
 	<div class="pt-admin-body">

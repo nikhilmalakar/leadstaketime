@@ -60,7 +60,7 @@ if (us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-tw
 			</ul>
 
 				<div class="navbar-nav ms-auto">
-					<?php if (us_level != 6): ?>
+					<?php if (!us_level): ?>
 						<div class="nav-action-button">
 							<a href="<?= path ?>/index.php?pg=plans" class="nav-item" style="color:white !important;"><i class="far fa-gem"
 									style="padding-right:10px !important;"></i>Pricing</a>
