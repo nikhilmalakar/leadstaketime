@@ -754,9 +754,10 @@ $("#pt-send-signin").on("submit", function(){
 				}, 3000);
 			} else {
 				setTimeout(function () {
+					
 					$(".alert").fadeOut('slow').remove();
 					if( $("body").hasClass("pt-planspage") ) location.reload();
-					else $(location).attr('href', path+"/mysurveys");
+					else $(location).attr('href', path);
 				}, 3000);
 			}
 		} catch (e) {
