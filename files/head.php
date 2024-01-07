@@ -39,6 +39,8 @@ if(basename($_SERVER['PHP_SELF'], '.php') != "index"){
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="./assets/img/leadstaketime_logo.png" type="image/x-icon" />
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="<?=path?>/<?=site_favicon?>" type="image/x-icon" />
 
 	<!-- Google Fonts -->
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,900%7CGentium+Basic:400italic&subset=latin,latin">

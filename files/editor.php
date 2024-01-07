@@ -80,17 +80,14 @@ $questionColors["file"]     = "bro";
 <div class="pt-surveyeditor">
 
 	<div class="pt-editorcontents">
-
-
 		<?php
 			/* ----------------------------
 							SURVEY details
 			 ----------------------------*/?>
 			 <div class="pt-editorheader">
-
 								 <div class="pt-editornavs">
-									 <a rel="pt-editornavsurvey">Survey Details</a>
-									 <a class="pt-active" rel="pt-editornavform"><?php echo $lang['editor']["form"] ?></a>
+									 <a class="pt-active" rel="pt-editornavsurvey">Survey Details</a>
+									 <a  rel="pt-editornavform"><?php echo $lang['editor']["form"] ?></a>
 									 <a rel="pt-editornavpreview"><?php echo $lang['editor']["preview"] ?></a>
 									 <!-- <a rel="pt-editornavlogics" class="relative"><?php echo $lang['editor']["logics"] ?>
 										 <div class="pt-textinfo"><i class="fas fa-question" data-toggle="tooltip" data-placement="top" title="<?php echo $lang['editor']["logics_i"] ?>"></i></div>
@@ -100,7 +97,7 @@ $questionColors["file"]     = "bro";
 								 </div>
 							 </div>
 
-		<div class="pt-editorbody pt-editornavsurvey">
+		<div class="pt-editorbody pt-editornavsurvey pt-active">
 			<div class="pt-editorheader">
 
 
@@ -174,7 +171,7 @@ $questionColors["file"]     = "bro";
 							Editor FORM
 			 ----------------------------*/?>
 
-		<div class="pt-editorbody pt-editornavform pt-active">
+		<div class="pt-editorbody pt-editornavform">
 			<div class="pt-editorbuttons">
 				<ul>
 					<li><a rel="text"><span><i class="fas fa-keyboard"></i></span><b><?php echo $lang['editor']["text"] ?></b></a></li>
