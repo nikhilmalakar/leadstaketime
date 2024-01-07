@@ -109,7 +109,7 @@ if($rs['author'] == us_id || us_level == 6):
 				</span>
 			</td>
 			<td>
-				<?php if($rs['viewed'] ==0) : ?> 
+				<?php if($rs['viewed'] ==0 && us_level ==1) : ?> 
 					<button class="pt-btn" style="pointer-events:auto;" onclick="hello()">Pay To View</button>
 				<?php endif;?>
 				<script>
