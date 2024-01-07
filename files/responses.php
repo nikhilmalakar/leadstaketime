@@ -109,8 +109,12 @@ if($rs['author'] == us_id || us_level == 6):
 				</span>
 			</td>
 			<td>
-				<?php if($rs['viewed'] ==0 && us_level ==1) : ?> 
-					<button class="pt-btn" style="pointer-events:auto;" onclick="hello()">Pay To View</button>
+				<?php if($rs['viewed'] ==0 && us_level ==1) : ?>
+					
+					<form action="<?php path ?>/leadstaketime/files/create-checkout-session_basic.php" method="post">
+						<input type="hidden" name="survey_id" value="<?php echo $id; ?>">
+						<button type="submit" name="submit" class="pt-btn" style="pointer-events:auto;" >Pay To View</button>
+					</form>
 				<?php endif;?>
 				<script>
 					function hello() {

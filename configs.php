@@ -223,6 +223,7 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
 # Get vars
 $request = (isset($_GET['request']) ? sc_sec($_GET['request']) : '');
 $pg      = (isset($_GET['pg']) ? sc_sec($_GET['pg'])           : '');
+$survey_id      = (isset($_GET['survey_id']) ? sc_sec($_GET['survey_id'])           : '');
 $id      = (isset($_GET['id']) ? (int)($_GET['id'])    : '');
 $s       = (isset($_GET['s']) ? (int)($_GET['s'])      : '');
 $t       = (isset($_GET['t']) ? sc_sec($_GET['t'])      : '');

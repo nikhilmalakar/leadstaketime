@@ -2,7 +2,8 @@
 include __DIR__."/../configs.php";
 
 $log_session = ( isset($_SESSION['login']) ? (int)$_SESSION['login'] : ( isset($_COOKIE['login']) ? (int)$_COOKIE['login'] : 0 ) );
-$query = "UPDATE ".prefix."users SET plan = '3', level = '3' WHERE id = '{$log_session}'";
+echo $survey_id;
+$query = "UPDATE ".prefix."responses SET viewed = '1' WHERE survey = '{$survey_id}'";
 // echo $query;
 // echo $_COOKIE['login'];
 // echo us_id; 
@@ -13,6 +14,6 @@ if($result){
 } else {
     echo "Error updating record: " . mysqli_error($db);
 }
-// echo path;
+echo path;
 header("Location: ".path."/../index.php");
 ?>

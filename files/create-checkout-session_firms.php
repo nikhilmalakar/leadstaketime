@@ -13,7 +13,7 @@ $checkout_session = $stripe->checkout->sessions->create([
     'quantity' => 1,
   ]],
   'mode' => 'subscription',
-  'success_url' => 'http://localhost/leadstaketime/index.php',
+  'success_url' => 'http://localhost/leadstaketime/files/success_firms.php',
   'cancel_url' => 'http://localhost/cancel',
 ]);
 
