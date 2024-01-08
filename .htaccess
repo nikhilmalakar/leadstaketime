@@ -9,7 +9,8 @@ RewriteEngine on
 RewriteRule ^mysurveys/?$ index.php?pg=mysurveys [NC]
 RewriteRule ^mysurveys/page/([0-9-]+)/?$ index.php?pg=mysurveys&page=$1? [NC]
 
-
+RewriteRule ^firmuser/?$ index.php?pg=firmuser [NC]
+RewriteRule ^firmuser/page/([0-9-]+)/?$ index.php?pg=firmuser&page=$1? [NC]
 
 
 RewriteRule ^p([0-9-]+)/(.*)/?$ index.php?pg=pages&id=$1&t=$2? [NC]

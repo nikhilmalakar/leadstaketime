@@ -23,6 +23,7 @@ include __DIR__."/configs.php";
 
 
 switch ($pg) {
+	case 'firmuser':    include __DIR__."/files/firmuser.php"; break;
 	case 'pages':       include __DIR__."/files/pages.php"; break;
 	case 'plans':       include __DIR__."/files/plans.php"; break;
 	case 'userdetails': include __DIR__."/files/userdetails.php"; break;
@@ -32,7 +33,6 @@ switch ($pg) {
 	case 'responses':   include __DIR__."/files/responses.php"; break;
 	case 'report':      include __DIR__."/files/rapport.php"; break;
 	case 'payment':     include __DIR__."/files/payment.php"; break;
-
 	default:
 		if(site_landing){
 			include __DIR__."/files/home.php";

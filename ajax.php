@@ -147,7 +147,7 @@ elseif($pg == 'delete' || $pg == 'trush'){
 		}
 
 	} else {
-		if(us_level == 6){
+		if(us_level == 6 || us_level == 3){
 			db_delete("users", $id);
 		}
 	}

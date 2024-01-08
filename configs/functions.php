@@ -27,6 +27,14 @@ function db_rows($table, $field = 'id'){
 	return $rs;
 }
 
+function db_count($table, $field = 'id'){
+	global $db;
+	$sql = $db->query("SELECT COUNT(id) FROM ".prefix."{$table}") or die($db->error);
+	$rs  = $sql->num_rows;
+	$sql->close();
+	return $rs;
+}
+
 function db_get($table, $field, $id, $where='id', $other=false){
 	global $db;
 	$sql = $db->query("SELECT {$field} FROM ".prefix."{$table} WHERE {$where} = '{$id}' {$other}") or die($db->error);

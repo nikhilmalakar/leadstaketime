@@ -36,10 +36,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		$reg_address   = isset($_POST['reg_address']) ? sc_sec($_POST['reg_address'])     : '';
 		$reg_uid       = isset($_POST['reg_id']) ? (int)($_POST['reg_id'])       : 0;
 
-		$reg_id = ($reg_uid && us_level == 6 ? $reg_uid : us_id );
+		$reg_id = ($reg_uid ? $reg_uid : us_id );
 
-		$u_username = ($reg_uid && us_level == 6 ? $reg_name : us_username );
-		$u_email = ($reg_uid && us_level == 6 ? $reg_email : us_email );
+		$u_username = ($reg_uid ? $reg_name : us_username );
+		$u_email = ($reg_uid ? $reg_email : us_email );
 		$reg_plan = (us_level == 6 ? $reg_plan : db_get("users", "plan", $reg_plan) );
 		$reg_plan = $reg_plan ? $reg_plan : 0;
 
@@ -58,7 +58,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 				'type'  =>'danger',
 				'alert' => fh_alerts($lang['alerts']['signuplimited_username'])
 			];
-		} elseif($reg_name != $u_username && db_rows("users WHERE username = '".$reg_name."'")){
+		} elseif(db_rows("users WHERE username = '".$reg_name."' AND id != '{$reg_id}'")){
 			$alert = [
 				'type'  =>'danger',
 				'alert' => fh_alerts($lang['alerts']['signupexist_username'])
@@ -73,7 +73,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 				'type'  =>'danger',
 				'alert' => fh_alerts($lang['alerts']['signupcheck_email'])
 			];
-		} elseif($reg_email != $u_email && db_rows("users WHERE email = '".$reg_email."'")){
+		} elseif(db_rows("users WHERE email = '".$reg_email."' AND id != '{$reg_id}'")){
 			$alert = [
 				'type'  =>'danger',
 				'alert' => fh_alerts($lang['alerts']['signupexist_email'])
@@ -90,9 +90,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 				'state'      => "{$reg_state}",
 				'gender'     => "{$reg_gender}",
 				'photo'      => "{$reg_photo}",
-				'plan'       => "{$reg_plan}",
 				'updated_at' => time()
 			];
+
+			if(us_level == 6) {
+				$data['plan'] = $reg_plan;
+			}
 
 			if($reg_pass) $data['password'] = sc_pass($reg_pass);
 

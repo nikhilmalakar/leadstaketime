@@ -283,6 +283,7 @@ $lang['alerts'] = [
 
 	"signupchar_username"    => "The username must contain only letters!",
 	"signuplimited_username" => "The Username must be limited between 3 and 15 characters!",
+	"signuplimited_firm"     => "Firm already reached maximum users",
 	"signupexist_username"   => "Username is already exists!",
 	"signuplimited_pass"     => "The Password must be limited between 6 and 12 characters!",
 	"signuprepass"           => "Re-password is Must match with the password!",

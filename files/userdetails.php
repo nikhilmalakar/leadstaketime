@@ -26,10 +26,10 @@ if(!us_level){
 	exit;
 }
 
-if($id && db_rows("users WHERE id = '{$id}'") && us_level == 6) {
+if($id && db_rows("users WHERE id = '{$id}'") && (us_level == 6 || us_level == 3)) {
 	$sql = $db->query("SELECT * FROM ".prefix."users WHERE id = '{$id}'");
 	$rs = $sql->fetch_assoc();
-
+$u_id = $rs['id'];
 	$u_firstname = $rs['firstname'];
 	$u_lastname = $rs['lastname'];
 	$u_username = $rs['username'];
@@ -42,7 +42,25 @@ if($id && db_rows("users WHERE id = '{$id}'") && us_level == 6) {
 	$u_state = $rs['state'];
 	$u_plan = $rs['plan'];
 	$tttt = " (".$rs['username'].")";
+} else if($id && db_rows("users WHERE firm_id = '{$id}'") && us_level == 3) {
+	$sql = $db->query("SELECT * FROM ".prefix."users WHERE firm_id = '{$id}'");
+	$rs = $sql->fetch_assoc();
+	$u_id = $rs['id'];
+	$u_firstname = $rs['firstname'];
+	$u_lastname = $rs['lastname'];
+	$u_username = $rs['username'];
+	$u_email = $rs['email'];
+	$u_gender = $rs['gender'];
+	$u_photo = $rs['photo'];
+	$u_address = $rs['address'];
+	$u_city = $rs['city'];
+	$u_country = $rs['country'];
+	$u_state = $rs['state'];
+	$u_plan = $rs['plan'];
+	$tttt = " (".$rs['username'].")";
+
 } else {
+	$u_id = $id;
 	$u_firstname = us_firstname;
 	$u_lastname = us_lastname;
 	$u_username = us_username;
@@ -140,7 +158,7 @@ if($id && db_rows("users WHERE id = '{$id}'") && us_level == 6) {
 			<button type="submit" class="fancy-button bg-gradient5">
 				<span><?=$lang['details']['button']?> <i class="fas fa-arrow-circle-right"></i></span>
 			</button>
-			<input type="hidden" name="reg_id" value="<?=($id ? $id : '')?>" />
+			<input type="hidden" name="reg_id" value="<?=($u_id ? $u_id : '')?>" />
 			<input type="hidden" name="reg_photo" rel="#chooseFile3" value="<?=$u_photo?>" />
 		</div>
 	</form>

@@ -47,7 +47,7 @@ if (us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-tw
 				<li class="nav-item">
 					<a class="" href="<?= path ?>">Home <span class="sr-only">(current)</span></a>
 				</li>
-				<?php if (site_landing && us_level != 6): ?>
+				<?php if (site_landing && us_level != 6 && us_level !=3): ?>
 					<li class="nav-item">
 						<a href="<?= path ?>/index.php?pg=mysurveys">
 							<?= $lang['menu']['my'] ?>
@@ -75,9 +75,13 @@ if (us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-tw
 						<div class="nav-action-button">
 							<a href="./dashboard.php" style="color:white !important;" class="nav-item">Admin Panel</a>
 						</div>
-					<?php elseif (us_level): ?>
+					<?php elseif (us_level<=2): ?>
 						<div class="nav-action-button">
 							<a href="<?= path ?>/index.php?pg=mysurveys" style="color:white !important;" class="nav-item">Dashboard</a>
+						</div>
+					<?php else: ?>
+						<div class="nav-action-button">
+							<a href="<?= path ?>/firmuser" style="color:white !important;" class="nav-item">Dashboard</a>
 						</div>
 					<?php endif; ?>
 
@@ -107,7 +111,7 @@ if (us_level || (!us_level && in_array($pg, ['survey', 'login-google', 'login-tw
 											</div>
 
 											<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-												<?php if (us_level != 6): ?>
+												<?php if (us_level != 6 && us_level != 3): ?>
 													<a class="dropdown-item" href="#newSurveyModal" data-toggle="modal"><i
 															class="fas fa-plus"></i>
 														<?= $lang['menu']['new'] ?>

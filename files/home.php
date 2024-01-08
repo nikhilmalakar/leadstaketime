@@ -140,9 +140,13 @@
 						<div class="nav-action-button">
 							<a href="./plans" class="nav-item">Get Started</a>
 						</div>
-					<?php elseif(us_level != 6): ?>
+					<?php elseif(us_level == 1 || us_level == 2): ?>
 						<div class = "nav-action-button">
-							<a href="./mysurveys" class="nav-item">Dahsboard</a>
+							<a href="./mysurveys" class="nav-item">Dashboard</a>
+						</div>
+					<?php elseif(us_level == 3): ?>
+						<div class = "nav-action-button">
+							<a href="./firmuser" class="nav-item">Dashboard</a>
 						</div>
 					<?php else: ?>
 						<div class="nav-action-button">

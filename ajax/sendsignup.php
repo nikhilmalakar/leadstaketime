@@ -20,7 +20,7 @@
 # -------------------------------------------------#
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-	if(!us_level || us_level == 6){
+	if(!us_level || us_level == 3 || us_level == 6){
 		$reg_name    = isset($_POST['reg_name']) ? sc_sec($_POST['reg_name']) : '';
 		$reg_pass    = isset($_POST['reg_pass']) ? sc_sec($_POST['reg_pass']) : '';
 		$reg_email   = isset($_POST['reg_email']) ? sc_sec($_POST['reg_email']) : '';
@@ -60,6 +60,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 				'type'  =>'danger',
 				'alert' => fh_alerts($lang['alerts']['signupexist_email'])
 			];
+		} elseif(db_count("users WHERE firm_id = '".us_id."'") == 50) {
+			$alert = [
+				'type'  =>'danger',
+				'alert' => fh_alerts($lang['alerts']['signuplimited_firm'])
+			];
 		} else {
 			$data = [
 				'username'   => "{$reg_name}",
@@ -69,6 +74,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 				'level'      => "1",
 				'plan'       => "1"
 			];
+
+			if(us_level == 3) {
+				$data['firm_id'] = us_id;
+				$data['plan'] = "2";
+				$data['level'] = "2";
+
+			}
 
 			db_insert("users", $data);
 
